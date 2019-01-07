@@ -1,5 +1,8 @@
+import database.DbConnector;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -9,10 +12,12 @@ public class Main extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-
-        Scene scene = new Scene();
-        primaryStage.setScene( scene );
-        primaryStage.setTitle( "ELO" );
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/admin/admin_view.fxml"));
+        Pane borderPane = loader.load();
+        Scene scene = new Scene(borderPane);
+        primaryStage.setScene(scene);
         primaryStage.show();
+
+        DbConnector.getInstance().connectWithDatabase();
     }
 }
