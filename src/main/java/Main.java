@@ -12,12 +12,10 @@ public class Main extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/admin/admin_view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource( "fxml/loggingView/mainLoggingView.fxml" ));
         Pane borderPane = loader.load();
         Scene scene = new Scene(borderPane);
         primaryStage.setScene(scene);
         primaryStage.show();
-
-        DbConnector.getInstance().connectWithDatabase();
     }
 }

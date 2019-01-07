@@ -10,8 +10,8 @@ import java.sql.Statement;
 public class CategoryDao {
     private Connection connection;
 
-    public CategoryDao() {
-        this.connection = DbConnector.getInstance().getConnection();
+    public CategoryDao(String login, String pass) {
+        this.connection = DbConnector.getInstance().getConnection(login, pass);
     }
 
     public void showCategories() {

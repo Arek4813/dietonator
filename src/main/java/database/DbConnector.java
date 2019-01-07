@@ -1,5 +1,7 @@
 package database;
 
+import controller.signInPanelController;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,8 +13,11 @@ public class DbConnector {
     private final String USER = "root";
     private final String PASSWORD = "rootpassword";
     private Connection connection;
+    private signInPanelController signInController;
 
-    private DbConnector() {}
+    private DbConnector() {
+        this.signInController=new signInPanelController();
+    }
 
     public static DbConnector getInstance() {
         if (INSTANCE == null)
@@ -20,15 +25,22 @@ public class DbConnector {
         return INSTANCE;
     }
 
-    public Connection getConnection() {
+    public Connection getConnection(String login, String pass) {
         if (connection == null)
-            connectWithDatabase();
+            connectWithDatabase(login, pass);
         return connection;
     }
 
-    public void connectWithDatabase() {
+    /*public void connectWithDatabase() {
         try {
-            connection = DriverManager.getConnection(HOST, USER, PASSWORD);
+            connection = DriverManager.getConnection(HOST, signInController.getEnterLogin().getText(), signInController.getEnterPassword().getText());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }*/
+    public void connectWithDatabase(String login, String pass) {
+        try {
+            connection=DriverManager.getConnection(HOST, login, pass);
         } catch (SQLException e) {
             e.printStackTrace();
         }
