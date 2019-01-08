@@ -1,11 +1,9 @@
 package database.dao;
 
 import database.DbConnector;
+import database.model.Category;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class CategoryDao {
     private Connection connection;
@@ -14,17 +12,31 @@ public class CategoryDao {
         this.connection = DbConnector.getInstance().getConnection(login, pass);
     }
 
-    public void showCategories() {
-        try {
-            Statement stm = connection.createStatement();
-            ResultSet rs = stm.executeQuery("CALL select_all_categories");
+    public void addCategory(Category category) throws SQLException {
+        PreparedStatement stm = connection.prepareStatement("CALL create_category(?)");
+        stm.setString(1, category.getName());
+        stm.executeUpdate();
 
-            while (rs.next()) {
-                System.out.println(rs.getString("name"));
-            }
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
+    }
+
+    public ResultSet getCategories() throws SQLException {
+        ResultSet resultSet = null;
+        Statement stm = connection.createStatement();
+        resultSet = stm.executeQuery("CALL select_all_categories");
+        return  resultSet;
+    }
+
+    public void deleteCategory(String name) throws SQLException {
+        PreparedStatement stm = connection.prepareStatement("CALL delete_category(?)");
+        stm.setString(1, name);
+        stm.executeUpdate();
+
+    }
+
+    public ResultSet getCategories(String name) throws SQLException {
+        PreparedStatement stm = connection.prepareStatement("CALL select_category(?)");
+        stm.setString(1, name);
+        ResultSet resultSet = stm.executeQuery();
+        return resultSet;
     }
 }
