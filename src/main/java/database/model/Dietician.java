@@ -1,0 +1,69 @@
+package database.model;
+
+import java.sql.Date;
+import java.time.LocalDate;
+
+public class Dietician {
+
+    private String dieticianLogin;
+
+    private String dieticianPassword;
+
+    public String getDieticianLogin() {
+        return dieticianLogin;
+    }
+
+    public void setDieticianLogin(String dieticianLogin) {
+        this.dieticianLogin = dieticianLogin;
+    }
+
+    public String getDieticianPassword() {
+        return dieticianPassword;
+    }
+
+    public void setDieticianPassword(String dieticianPassword) {
+        this.dieticianPassword = dieticianPassword;
+    }
+
+    public String getDieticianName() {
+        return dieticianName;
+    }
+
+    public void setDieticianName(String dieticianName) {
+        this.dieticianName = dieticianName;
+    }
+
+    public String getDieticianSurname() {
+        return dieticianSurname;
+    }
+
+    public void setDieticianSurname(String dieticianSurname) {
+        this.dieticianSurname = dieticianSurname;
+    }
+
+    public Date getDieticianBirthDate() {
+        return dieticianBirthDate;
+    }
+
+    public void setDieticianBirthDate(Date dieticianBirthDate) {
+        this.dieticianBirthDate = dieticianBirthDate;
+    }
+
+    public String getDieticianMail() {
+        return dieticianMail;
+    }
+
+    public void setDieticianMail(String dieticianMail) {
+        this.dieticianMail = dieticianMail;
+    }
+
+    private String dieticianName;
+
+    private String dieticianSurname;
+
+    private Date dieticianBirthDate;
+
+    private String dieticianMail;
+
+
+}
