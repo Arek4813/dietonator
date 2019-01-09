@@ -8,8 +8,8 @@ import java.sql.*;
 public class CategoryDao {
     private Connection connection;
 
-    public CategoryDao(String login, String pass) {
-        this.connection = DbConnector.getInstance().getConnection(login, pass);
+    public CategoryDao() {
+        this.connection = DbConnector.getInstance().getConnection();
     }
 
     public void addCategory(Category category) throws SQLException {
