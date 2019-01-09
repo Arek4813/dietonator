@@ -58,6 +58,8 @@ public class SignInPanelController {
                 else {
                     Alert alert = new Alert( Alert.AlertType.ERROR, "This data don't exist in database", ButtonType.OK );
                     alert.showAndWait();
+                    enterLogin.clear();
+                    enterPassword.clear();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
