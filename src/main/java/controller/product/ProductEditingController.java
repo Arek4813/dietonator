@@ -1,4 +1,4 @@
-package controller;
+package controller.product;
 
 import database.dao.CategoryDao;
 import database.dao.ProductDao;

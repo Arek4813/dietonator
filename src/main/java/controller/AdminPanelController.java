@@ -8,8 +8,9 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 
 public class AdminPanelController {
-    private static final String CATEGORIES = "/fxml/admin/categoryView.fxml";
-    private static final String PRODUCTS = "/fxml/admin/product.fxml";
+    private static final String CATEGORIES = "/fxml/admin/category/categoryView.fxml";
+    private static final String PRODUCTS = "/fxml/admin/product/product.fxml";
+    private static final String MEAL = "/fxml/admin/meal/mealView.fxml";
 
     @FXML
     private BorderPane borderPane;
@@ -22,6 +23,11 @@ public class AdminPanelController {
     @FXML
     public void showProducts() {
         setCenter(PRODUCTS);
+    }
+
+    @FXML
+    public void showMeals() {
+        setCenter(MEAL);
     }
 
     public void setCenter(String pathToCenterController) {

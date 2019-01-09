@@ -1,4 +1,4 @@
-package controller;
+package controller.product;
 
 import database.dao.ProductDao;
 import database.model.Category;
@@ -9,10 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelfx.CategoryFx;
@@ -62,11 +59,69 @@ public class ProductViewController {
     @FXML
     private TableColumn<ProductFx, ProductFx> editColumn;
 
+    @FXML
+    private TextField searchProductTextField;
+
     private ProductDao productDao;
 
     @FXML
     public void initialize() {
         productDao = new ProductDao();
+        initializeTable();
+        refreshTable();
+    }
+
+    @FXML
+    public void searchProduct() {
+        ObservableList<ProductFx> data = FXCollections.observableArrayList();
+        ResultSet rs = null;
+        try {
+            rs = productDao.getProducts(searchProductTextField.getText());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        insertProductIntoTheTable(data, rs);
+        searchProductTextField.clear();
+    }
+
+    public void refreshTable() {
+        ObservableList<ProductFx> data = FXCollections.observableArrayList();
+        ResultSet rs = null;
+        try {
+            rs = productDao.getProducts();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        insertProductIntoTheTable(data, rs);
+    }
+
+    private void insertProductIntoTheTable(ObservableList<ProductFx> data, ResultSet rs) {
+        ProductConverter converter = ProductConverter.getInstance();
+
+        try {
+            while (rs.next()) {
+                Product product = new Product();
+                product.setName(rs.getString("name"));
+                Category category = new Category();
+                category.setName(rs.getString("category"));
+                product.setCategory(category);
+                product.setEnergy(rs.getInt("energy"));
+                product.setFat(rs.getInt("fat"));
+                product.setSaturates(rs.getInt("of_which_saturates"));
+                product.setCarbohydrates(rs.getInt("carbohydrates"));
+                product.setSugars(rs.getInt("of_which_sugars"));
+                product.setProtein(rs.getInt("protein"));
+                product.setSalt(rs.getInt("salt"));
+                data.add(converter.convertToProductFx(product));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        productTable.setItems(data);
+    }
+
+    private void initializeTable() {
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         categoryColumn.setCellValueFactory(cellData -> cellData.getValue().categoryProperty());
         energyColumn.setCellValueFactory(cellData -> cellData.getValue().energyProperty().asObject());
@@ -112,7 +167,7 @@ public class ProductViewController {
                 if (!empty) {
                     setGraphic(button);
                     button.setOnAction(event -> {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/productEditing.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/product/productEditing.fxml"));
                         Scene scene = null;
                         try {
                             scene = new Scene(loader.load());
@@ -130,45 +185,6 @@ public class ProductViewController {
                 }
             }
         });
-        refreshTable();
-
-    }
-
-    public void refreshTable() {
-        ObservableList<ProductFx> data = FXCollections.observableArrayList();
-        ResultSet rs = null;
-        try {
-            rs = productDao.getProducts();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        insertProductIntoTheTable(data, rs);
-    }
-
-    private void insertProductIntoTheTable(ObservableList<ProductFx> data, ResultSet rs) {
-        ProductConverter converter = ProductConverter.getInstance();
-
-        try {
-            while (rs.next()) {
-                Product product = new Product();
-                product.setName(rs.getString("name"));
-                Category category = new Category();
-                category.setName(rs.getString("category"));
-                product.setCategory(category);
-                product.setEnergy(rs.getInt("energy"));
-                product.setFat(rs.getInt("fat"));
-                product.setSaturates(rs.getInt("of_which_saturates"));
-                product.setCarbohydrates(rs.getInt("carbohydrates"));
-                product.setSugars(rs.getInt("of_which_sugars"));
-                product.setProtein(rs.getInt("protein"));
-                product.setSalt(rs.getInt("salt"));
-                data.add(converter.convertToProductFx(product));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        productTable.setItems(data);
     }
 
 

@@ -1,4 +1,4 @@
-package controller;
+package controller.product;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,8 +13,13 @@ public class ProductController {
     private BorderPane borderPane;
 
     @FXML
+    public void initialize() {
+        productView();
+    }
+
+    @FXML
     public void productAdding() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/productAdding.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/product/productAdding.fxml"));
         Parent parent = null;
         try {
             parent = loader.load();
@@ -26,7 +31,7 @@ public class ProductController {
 
     @FXML
     public void productView() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/productView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/product/productView.fxml"));
         Parent parent = null;
         try {
             parent = loader.load();
