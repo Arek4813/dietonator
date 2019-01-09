@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductAddingController">
+   <children>
+      <ChoiceBox fx:id="categoryChoiceBox" layoutX="208.0" layoutY="14.0" prefHeight="25.0" prefWidth="170.0" />
+      <Button layoutX="562.0" layoutY="41.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="46.0" prefWidth="76.0" text="Add" />
+      <TextField fx:id="saltTextField" layoutX="385.0" layoutY="87.0" promptText="salt" />
+      <TextField fx:id="proteinTextField" layoutX="208.0" layoutY="87.0" promptText="protein" />
+      <TextField fx:id="sugarsTextField" layoutX="31.0" layoutY="87.0" promptText="sugars" />
+      <TextField fx:id="carbohydratesTextField" layoutX="385.0" layoutY="51.0" promptText="carbohydrates" />
+      <TextField fx:id="energyTextField" layoutX="385.0" layoutY="14.0" promptText="energy (kcal)" />
+      <TextField fx:id="saturatesTextField" layoutX="208.0" layoutY="51.0" promptText="saturates" />
+      <TextField fx:id="fatTextField" layoutX="31.0" layoutY="51.0" promptText="fat" />
+      <TextField fx:id="nameTextField" layoutX="31.0" layoutY="14.0" promptText="name" />
+   </children>
+</AnchorPane>

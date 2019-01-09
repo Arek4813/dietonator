@@ -11,7 +11,6 @@ import modelfx.CategoryFx;
 import utils.converter.CategoryConverter;
 import utils.dialog.DialogUtil;
 
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
