@@ -1,9 +1,7 @@
-package controller.meal;
+package controller.plan;
 
-import controller.AdminPanelController;
-import controller.product.ProductEditingController;
-import database.dao.MealDao;
-import database.model.Meal;
+import database.dao.PlanDao;
+import database.model.Plan;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,87 +10,85 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import modelfx.MealFx;
-import modelfx.ProductFx;
+import modelfx.PlanFx;
 import utils.dialog.DialogUtil;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class MealViewController {
-
+public class PlanViewController {
     @FXML
     private BorderPane borderPane;
 
     @FXML
-    private TableView mealTableView;
+    private TableView planTableView;
 
     @FXML
-    private TableColumn<MealFx, String> nameTableColumn;
+    private TableColumn<PlanFx, String> nameTableColumn;
 
     @FXML
-    private TableColumn<MealFx, Float> energyTableColumn;
+    private TableColumn<PlanFx, Float> energyTableColumn;
 
     @FXML
-    private TableColumn<MealFx, Float> fatTableColumn;
+    private TableColumn<PlanFx, Float> fatTableColumn;
 
     @FXML
-    private TableColumn<MealFx, Float> saturatesTableColumn;
+    private TableColumn<PlanFx, Float> saturatesTableColumn;
 
     @FXML
-    private TableColumn<MealFx, Float> carbohydratesTableColumn;
+    private TableColumn<PlanFx, Float> carbohydratesTableColumn;
 
     @FXML
-    private TableColumn<MealFx, Float> sugarsTableColumn;
+    private TableColumn<PlanFx, Float> sugarsTableColumn;
 
     @FXML
-    private TableColumn<MealFx, Float> proteinTableColumn;
+    private TableColumn<PlanFx, Float> proteinTableColumn;
 
     @FXML
-    private TableColumn<MealFx, Float> saltTableColumn;
+    private TableColumn<PlanFx, Float> saltTableColumn;
 
     @FXML
-    private TableColumn<MealFx, MealFx> editTableColumn;
+    private TableColumn<PlanFx, PlanFx> editTableColumn;
 
     @FXML
-    private TableColumn<MealFx, MealFx> deleteTableColumn;
+    private TableColumn<PlanFx, PlanFx> deleteTableColumn;
 
     @FXML
-    private TableColumn<MealFx, MealFx> ingredientsTableColumn;
+    private TableColumn<PlanFx, PlanFx> mealsTableColumn;
 
     @FXML
-    private TextField addMealTextField;
+    private TextField addPlanTextField;
 
-    private MealDao mealDao;
+    private PlanDao planDao;
 
     @FXML
     public void initialize() {
-        mealDao = new MealDao();
+        planDao = new PlanDao();
         initializeTable();
         refreshTable();
     }
 
     @FXML
-    public void addMeal() {
-        String name = addMealTextField.getText();
+    public void addPlan() {
+        String name = addPlanTextField.getText();
         if (!name.equals("")) {
-            Meal meal = new Meal();
-            meal.setName(name);
+            Plan plan = new Plan();
+            plan.setName(name);
             try {
-                mealDao.addMeal(meal);
+                planDao.addPlan(plan);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
             refreshTable();
         }
-        addMealTextField.clear();
+        addPlanTextField.clear();
     }
 
     private void refreshTable() {
         try {
-            mealTableView.setItems(mealDao.getMeals());
+            planTableView.setItems(planDao.getPlan(""));
         } catch (SQLException e) {
-            e.printStackTrace();
+            DialogUtil.getInstance().errorDialog(e.getMessage());
         }
     }
 
@@ -106,10 +102,10 @@ public class MealViewController {
         proteinTableColumn.setCellValueFactory(cellData -> cellData.getValue().proteinProperty().asObject());
         saltTableColumn.setCellValueFactory(cellData-> cellData.getValue().saltProperty().asObject());
         deleteTableColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
-        deleteTableColumn.setCellFactory(cellData -> new TableCell<MealFx, MealFx>() {
+        deleteTableColumn.setCellFactory(cellData -> new TableCell<PlanFx, PlanFx>() {
             Button button = new Button("X");
             @Override
-            protected void updateItem(MealFx item, boolean empty) {
+            protected void updateItem(PlanFx item, boolean empty) {
                 super.updateItem(item, empty);
                 if (empty) {
                     setGraphic(null);
@@ -119,7 +115,7 @@ public class MealViewController {
                     setGraphic(button);
                     button.setOnAction(event -> {
                         try {
-                            mealDao.deleteMeal(item.getName());
+                            planDao.deletePlan(item.getName());
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
@@ -129,10 +125,10 @@ public class MealViewController {
             }
         });
         editTableColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
-        editTableColumn.setCellFactory(cellData -> new TableCell<MealFx, MealFx>() {
+        editTableColumn.setCellFactory(cellData -> new TableCell<PlanFx, PlanFx>() {
             Button button = new Button("EDIT");
             @Override
-            protected void updateItem(MealFx item, boolean empty) {
+            protected void updateItem(PlanFx item, boolean empty) {
                 super.updateItem(item, empty);
                 if (empty) {
                     setGraphic(null);
@@ -141,14 +137,14 @@ public class MealViewController {
                 if (!empty) {
                     setGraphic(button);
                     button.setOnAction(event -> {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/meal/mealEditing.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/plan/planEditing.fxml"));
                         Scene scene = null;
                         try {
                             scene = new Scene(loader.load());
                         } catch (IOException e) {
                             DialogUtil.getInstance().errorDialog(e.getMessage());
                         }
-                        MealEditingController controller = loader.getController();
+                        PlanEditingController controller = loader.getController();
                         controller.initializeField(item);
                         Stage stage = new Stage();
                         stage.setScene(scene);
@@ -159,11 +155,12 @@ public class MealViewController {
                 }
             }
         });
-        ingredientsTableColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
-        ingredientsTableColumn.setCellFactory(cellData -> new TableCell<MealFx, MealFx>() {
-            Button button = new Button("SHOW");
+
+        mealsTableColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
+        mealsTableColumn.setCellFactory(cellData -> new TableCell<PlanFx, PlanFx>() {
+            Button button = new Button("SHOW DETAILS");
             @Override
-            protected void updateItem(MealFx item, boolean empty) {
+            protected void updateItem(PlanFx item, boolean empty) {
                 super.updateItem(item, empty);
                 if (empty) {
                     setGraphic(null);
@@ -172,11 +169,11 @@ public class MealViewController {
                 if (!empty) {
                     setGraphic(button);
                     button.setOnAction(event -> {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/meal/productsOfMealView.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/plan/mealsOfPlanView.fxml"));
                         try {
                             borderPane.setCenter(loader.load());
-                            ProductsOfMealController controller = loader.getController();
-                            controller.showIngredientsOfMeal(item);
+                            MealsOfPlanController controller = loader.getController();
+                            controller.showDetails(item);
                         } catch (IOException e) {
                             DialogUtil.getInstance().errorDialog(e.getMessage());
                         }
@@ -185,5 +182,4 @@ public class MealViewController {
             }
         });
     }
-
 }

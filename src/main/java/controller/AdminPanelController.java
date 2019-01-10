@@ -11,6 +11,7 @@ public class AdminPanelController {
     private static final String CATEGORIES = "/fxml/admin/category/categoryView.fxml";
     private static final String PRODUCTS = "/fxml/admin/product/product.fxml";
     private static final String MEAL = "/fxml/admin/meal/mealView.fxml";
+    private static final String PLAN = "/fxml/admin/plan/planView.fxml";
 
     @FXML
     private BorderPane borderPane;
@@ -28,6 +29,11 @@ public class AdminPanelController {
     @FXML
     public void showMeals() {
         setCenter(MEAL);
+    }
+
+    @FXML
+    public void showPlans() {
+        setCenter(PLAN);
     }
 
     public void setCenter(String pathToCenterController) {
