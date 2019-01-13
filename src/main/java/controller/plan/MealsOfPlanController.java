@@ -58,7 +58,7 @@ public class MealsOfPlanController {
     public void initialize() {
         planMealDao = new PlanMealDao();
         initializeTable();
-        initializeTextFields();
+        initializeChoiceBoxes();
     }
 
     @FXML
@@ -125,7 +125,7 @@ public class MealsOfPlanController {
         });
     }
 
-    private void initializeTextFields() {
+    private void initializeChoiceBoxes() {
         ObservableList<String> days = FXCollections.observableArrayList();
         days.addAll("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
         ObservableList<String> times = FXCollections.observableArrayList();

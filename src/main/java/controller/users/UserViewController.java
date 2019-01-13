@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelfx.UserFx;
@@ -60,6 +61,9 @@ public class UserViewController {
 
     @FXML
     private TableColumn<UserFx, UserFx> dieticiansForUserColumn;
+
+    @FXML
+    private TableColumn<UserFx, UserFx> plansOfUser;
 
     private UserDao userDao;
 
@@ -159,8 +163,38 @@ public class UserViewController {
                 }
             }
         });
+        plansOfUser.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
+        plansOfUser.setCellFactory(cellData -> new TableCell<UserFx, UserFx>() {
+            Button button = new Button("SHOW DETAILS");
+            @Override
+            protected void updateItem(UserFx item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                    return;
+                }
+                if (!empty) {
+                    setGraphic(button);
+                    button.setOnAction(event -> {
+                        try {
+                            showPlansOfUser(item);
+                        } catch (IOException e) {
+                            DialogUtil.getInstance().errorDialog(e.getMessage());
+                        }
+                        refreshTable();
+                    });
+                }
+            }
+        });
         refreshTable();
 
+    }
+
+    private void showPlansOfUser(UserFx item) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/users/plansOfUser.fxml"));
+        ((BorderPane)(this.userTable.getParent().getParent().getParent())).setCenter(loader.load());
+        PlansOfUserController controller = loader.getController();
+        controller.initializeUser(item);
     }
 
     public void refreshTable() {
