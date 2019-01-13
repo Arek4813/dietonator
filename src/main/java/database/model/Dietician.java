@@ -1,7 +1,6 @@
 package database.model;
 
 import java.sql.Date;
-import java.time.LocalDate;
 
 public class Dietician {
 

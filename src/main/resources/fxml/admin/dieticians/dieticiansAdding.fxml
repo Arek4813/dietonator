@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="703.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dieticians.DieticianAddingController">
+    <children>
+        <Button layoutX="612.0" layoutY="27.0" mnemonicParsing="false" onAction="#addDietician" prefHeight="36.0" prefWidth="68.0" text="Add" />
+        <TextField fx:id="dieticianLoginTextField" layoutX="31.0" layoutY="14.0" promptText="Login" />
+        <TextField fx:id="dieticianNameTextField" layoutX="31.0" layoutY="51.0" promptText="Name" />
+        <TextField fx:id="dieticianSurnameTextField" layoutX="208.0" layoutY="51.0" promptText="Surname" />
+        <DatePicker fx:id="dieticianBirthDateDatePicker" layoutX="385.0" layoutY="51.0" promptText="Date of birth" />
+        <TextField fx:id="dieticianMailTextField" layoutX="385.0" layoutY="14.0" promptText="E-mail" />
+        <PasswordField fx:id="dieticianPasswordTextField" layoutX="208.0" layoutY="14.0" promptText="Password" />
+    </children>
+</AnchorPane>

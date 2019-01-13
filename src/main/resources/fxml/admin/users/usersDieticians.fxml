@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox fx:id="vBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="441.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.users.UserDieticiansController">
+   <children>
+      <TableView fx:id="UDTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="373.0" prefWidth="422.0">
+         <columns>
+            <TableColumn fx:id="uLoginColumn" prefWidth="151.0" text="UserLogin" />
+            <TableColumn fx:id="dLoginColumn" minWidth="0.0" prefWidth="176.0" text="DieticianLogin" />
+            <TableColumn fx:id="deleteColumn" prefWidth="94.0" text="Delete" />
+         </columns>
+      </TableView>
+      <HBox prefHeight="60.0" prefWidth="415.0" spacing="10.0">
+         <children>
+            <TextField fx:id="uLoginTextField" prefHeight="25.0" prefWidth="145.0" promptText="UserLogin" />
+            <TextField fx:id="dLoginTextField" prefHeight="25.0" prefWidth="145.0" promptText="DieticianLogin" />
+            <Button mnemonicParsing="false" onAction="#addUD" prefHeight="27.0" prefWidth="63.0" text="Add" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

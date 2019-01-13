@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.users.UserAddingController">
+<children>
+    <Button layoutX="564.0" layoutY="39.0" mnemonicParsing="false" onAction="#addUser" prefHeight="36.0" prefWidth="68.0" text="Add" />
+    <TextField fx:id="userLoginTextField" layoutX="31.0" layoutY="14.0" promptText="Login" />
+    <TextField fx:id="userNameTextField" layoutX="31.0" layoutY="51.0" promptText="Name" />
+    <TextField fx:id="userSurnameTextField" layoutX="208.0" layoutY="51.0" promptText="Surname" />
+    <TextField fx:id="userHeightTextField" layoutX="31.0" layoutY="87.0" promptText="Height" />
+    <TextField fx:id="userWeightTextField" layoutX="208.0" layoutY="87.0" promptText="Weight" />
+    <DatePicker fx:id="userBirthDateDatePicker" layoutX="385.0" layoutY="87.0" promptText="Date of birth" />
+    <TextField fx:id="userMailTextField" layoutX="385.0" layoutY="14.0" promptText="E-mail" />
+      <PasswordField fx:id="userPasswordTextField" layoutX="208.0" layoutY="14.0" promptText="Password" />
+</children>
+</AnchorPane>

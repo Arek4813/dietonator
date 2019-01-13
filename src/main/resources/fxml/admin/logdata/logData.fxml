@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="412.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.logdata.LogDataController">
+    <children>
+        <TableView fx:id="logDataTable" layoutX="23.0" layoutY="19.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="362.0">
+            <columns>
+                <TableColumn fx:id="loginColumn" prefWidth="114.0" text="Login" />
+                <TableColumn fx:id="passwordColumn" prefWidth="116.0" text="Password" />
+                <TableColumn fx:id="roleColumn" prefWidth="73.0" text="Role" />
+                <TableColumn fx:id="editColumn" prefWidth="58.0" text="Edit" />
+            </columns>
+        </TableView>
+    </children>
+</Pane>

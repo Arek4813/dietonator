@@ -1,8 +1,7 @@
-package controller;
+package controller.logging;
 
 import database.DbConnector;
-import database.dao.CategoryDao;
-import database.dao.LogDataDao;
+import database.dao.LoggingDao;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,7 +14,7 @@ import java.sql.SQLException;
 
 public class SignInPanelController {
 
-    LogDataDao logDataDao;
+    LoggingDao loggingDao;
 
     public TextField getEnterLogin() {
         return enterLogin;
@@ -42,17 +41,17 @@ public class SignInPanelController {
         }
         else {
             DbConnector.getInstance().connectWithDatabase("root", "rootpassword");
-            this.logDataDao=new LogDataDao();
+            this.loggingDao =new LoggingDao();
             try {
-                if (logDataDao.isRegistered(getEnterLogin().getText(), getEnterPassword().getText())==true) {
-                    if(logDataDao.getRole(getEnterLogin().getText()).equals("USER")) {
+                if (loggingDao.isRegistered(getEnterLogin().getText(), getEnterPassword().getText())==true) {
+                    if(loggingDao.getRole(getEnterLogin().getText()).equals("USER")) {
                         logger("/fxml/user/mainUserView.fxml");
                     }
-                    else if (logDataDao.getRole(getEnterLogin().getText()).equals("DIETICIAN")){
+                    else if (loggingDao.getRole(getEnterLogin().getText()).equals("DIETICIAN")){
                         logger("/fxml/dietician/mainDieticianView.fxml");
                     }
-                    else if (logDataDao.getRole(getEnterLogin().getText()).equals("ADMIN")) {
-                        logger("/fxml/admin/adminView.fxml");
+                    else if (loggingDao.getRole(getEnterLogin().getText()).equals("ADMIN")) {
+                        logger( "/fxml/admin/adminView.fxml" );
                     }
                 }
                 else {

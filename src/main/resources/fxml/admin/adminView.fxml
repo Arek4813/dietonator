@@ -17,6 +17,13 @@
                   <Button layoutX="238.0" layoutY="10.0" mnemonicParsing="false" onAction="#showPlans" prefHeight="64.0" prefWidth="121.0" text="Nutritional plan" />
                </children>
             </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#showUsers" prefHeight="63.0" prefWidth="114.0" text="Users" />
+                  <Button mnemonicParsing="false" onAction="#showDieticians" prefHeight="63.0" prefWidth="114.0" text="Dieticians" />
+                  <Button mnemonicParsing="false" onAction="#showAdmins" prefHeight="63.0" prefWidth="114.0" text="Admins" />
+                  <Button mnemonicParsing="false" onAction="#showLogData" prefHeight="63.0" prefWidth="114.0" text="LogData" />
+               </children></HBox>
             <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" />
             <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" />
          </children>

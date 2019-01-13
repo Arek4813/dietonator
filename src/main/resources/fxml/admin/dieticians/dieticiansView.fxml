@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="363.0" prefWidth="564.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dieticians.DieticianViewController">
+    <children>
+        <TableView fx:id="dieticianTable" layoutX="10.0" layoutY="10.0" prefHeight="334.0" prefWidth="544.0">
+            <columns>
+                <TableColumn fx:id="dieticianLogin" prefWidth="59.0" text="Login" />
+                <TableColumn fx:id="dieticianName" prefWidth="68.0" text="Name" />
+                <TableColumn fx:id="dieticianSurname" prefWidth="76.0" text="Surname" />
+                <TableColumn fx:id="dieticianBirthDate" minWidth="0.0" prefWidth="100.0" text="Date of birth" />
+                <TableColumn fx:id="dieticianMail" minWidth="0.0" prefWidth="66.0" text="E-mail" />
+                <TableColumn fx:id="editColumn" minWidth="10.0" prefWidth="50.0" text="Edit" />
+                <TableColumn fx:id="deleteColumn" prefWidth="65.0" text="Remove" />
+                <TableColumn fx:id="usersForDieticianColumn" prefWidth="68.0" text="Users" />
+            </columns>
+        </TableView>
+    </children>
+</Pane>
