@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane prefHeight="363.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admins.AdminsViewController">
+<Pane prefHeight="363.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.admins.AdminsViewController">
     <children>
         <TableView fx:id="adminTable" layoutX="10.0" layoutY="10.0" prefHeight="334.0" prefWidth="250.0">
             <columns>

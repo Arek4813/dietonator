@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0"
-            prefWidth="521.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admins.AdminsAddingController">
+            prefWidth="521.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.admins.AdminsAddingController">
     <children>
         <Button layoutX="420.0" layoutY="9.0" mnemonicParsing="false" onAction="#addAdmin" prefHeight="36.0" prefWidth="68.0" text="Add" />
         <TextField fx:id="adminLoginTextField" layoutX="31.0" layoutY="14.0" promptText="Login" />

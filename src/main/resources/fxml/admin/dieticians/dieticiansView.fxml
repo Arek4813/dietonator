@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane prefHeight="363.0" prefWidth="564.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dieticians.DieticianViewController">
+<Pane prefHeight="363.0" prefWidth="564.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.dieticians.DieticianViewController">
     <children>
         <TableView fx:id="dieticianTable" layoutX="10.0" layoutY="10.0" prefHeight="334.0" prefWidth="544.0">
             <columns>

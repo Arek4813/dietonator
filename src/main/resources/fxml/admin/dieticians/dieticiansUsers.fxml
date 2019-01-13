@@ -8,7 +8,7 @@
 
 <VBox fx:id="vBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="417.0" prefWidth="422.0" spacing="10.0" xmlns="http://javafx.com/javafx/8"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dieticians.DieticianUsersController">
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.dieticians.DieticianUsersController">
     <children>
         <TableView fx:id="DUTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
                    minWidth="-Infinity" prefHeight="373.0" prefWidth="422.0">
