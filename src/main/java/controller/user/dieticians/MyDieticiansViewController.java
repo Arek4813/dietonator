@@ -65,7 +65,7 @@ public class MyDieticiansViewController {
         ResultSet rs = null;
         try {
             //rs = dieticianDao.getDieticians();
-            rs = dieticianDao.getDieticianByLogin( DbConnector.getInstance().getLogin());
+            rs = dieticianDao.getDieticiansOfChosenUser( DbConnector.getInstance().getLogin());
         } catch (SQLException e) {
             e.printStackTrace();
         }
