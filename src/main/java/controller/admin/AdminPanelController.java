@@ -1,9 +1,13 @@
 package controller.admin;
 
+import database.DbConnector;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import main.Main;
 import utils.dialog.DialogUtil;
 
 import java.awt.*;
@@ -53,6 +57,61 @@ public class AdminPanelController {
 
     @FXML
     public void showLogData() { setCenter(LOGDATA);}
+
+    @FXML
+    public void backup() {
+        String backupFile = "dietonator.sql";
+        String executedCommand = "mysqldump -u root -p password dietonator > " + backupFile;
+        Process runtimeProcess;
+        try {
+            runtimeProcess = Runtime.getRuntime().exec(executedCommand);
+            int processFinished = runtimeProcess.waitFor();
+            if (processFinished == 0)
+                return;
+            else
+                throw new IOException("Something went wrong");
+        }
+        catch (IOException e) {
+            DialogUtil.getInstance().errorDialog(e.getMessage());
+        } catch (InterruptedException e) {
+            DialogUtil.getInstance().errorDialog(e.getMessage());
+        }
+    }
+
+    @FXML
+    public void restore() {
+        String backupFile = "dietonator.sql";
+        String executedCommand = "mysql -u root -p password dietonator < " + backupFile;
+        Process runtimeProcess;
+        try {
+            runtimeProcess = Runtime.getRuntime().exec(executedCommand);
+            int processFinished = runtimeProcess.waitFor();
+            if (processFinished == 0)
+                return;
+            else
+                throw new IOException("Something went wrong");
+        }
+        catch (IOException e) {
+            DialogUtil.getInstance().errorDialog(e.getMessage());
+        } catch (InterruptedException e) {
+            DialogUtil.getInstance().errorDialog(e.getMessage());
+        }
+    }
+
+    @FXML
+    public void logOut() {
+        DbConnector.getInstance().closeConnection();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/loggingView/mainLoggingView.fxml"));
+        Pane borderPane = null;
+        try {
+            borderPane = loader.load();
+        } catch (IOException e) {
+            DialogUtil.getInstance().errorDialog(e.getMessage());
+        }
+        Scene userScene = new Scene(borderPane);
+        Main.setScene(null);
+        Main.setScene(userScene);
+    }
 
     public void setCenter(String pathToCenterController) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(pathToCenterController));
