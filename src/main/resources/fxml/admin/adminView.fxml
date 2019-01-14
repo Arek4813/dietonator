@@ -10,7 +10,7 @@
    <top>
       <VBox prefHeight="162.0" prefWidth="1000.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#showCategories" prefHeight="64.0" prefWidth="114.0" text="Category" />
                   <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#showProducts" prefHeight="64.0" prefWidth="114.0" text="Product" />
@@ -20,7 +20,7 @@
                   <Button layoutX="512.0" layoutY="10.0" mnemonicParsing="false" onAction="#logOut" prefHeight="64.0" prefWidth="120.0" text="LOG OUT" />
                </children>
             </HBox>
-            <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#showUsers" prefHeight="63.0" prefWidth="114.0" text="Users" />
                   <Button mnemonicParsing="false" onAction="#showDieticians" prefHeight="63.0" prefWidth="114.0" text="Dieticians" />

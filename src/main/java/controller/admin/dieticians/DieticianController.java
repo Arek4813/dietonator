@@ -13,6 +13,11 @@ public class DieticianController {
     private BorderPane borderPane;
 
     @FXML
+    public void initialize() {
+        adminView();
+    }
+
+    @FXML
     private void dieticianAdding() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource( "/fxml/admin/dieticians/dieticiansAdding.fxml" ));
         Parent parent = null;

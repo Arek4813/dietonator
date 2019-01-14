@@ -13,6 +13,11 @@ public class UserController {
     private BorderPane borderPane;
 
     @FXML
+    public void initialize() {
+        userView();
+    }
+
+    @FXML
     private void userAdding() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource( "/fxml/admin/users/usersAdding.fxml" ));
         Parent parent = null;

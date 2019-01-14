@@ -13,6 +13,11 @@ public class AdminsContoller {
     private BorderPane borderPane;
 
     @FXML
+    public void initialize() {
+        adminView();
+    }
+
+    @FXML
     private void adminAdding() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource( "/fxml/admin/admins/adminsAdding.fxml" ));
         Parent parent = null;
