@@ -1,11 +1,9 @@
-package controller.plan;
+package controller.admin.plan;
 
-import database.dao.MealDao;
 import database.dao.PlanDao;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import modelfx.MealFx;
 import modelfx.PlanFx;
 
 import java.sql.SQLException;

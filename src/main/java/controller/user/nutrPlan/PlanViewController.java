@@ -1,5 +1,6 @@
-package controller.admin.plan;
+package controller.user.nutrPlan;
 
+import controller.admin.plan.PlanEditingController;
 import database.dao.PlanDao;
 import database.model.Plan;
 import javafx.beans.property.SimpleObjectProperty;
@@ -46,12 +47,6 @@ public class PlanViewController {
 
     @FXML
     private TableColumn<PlanFx, Float> saltTableColumn;
-
-    @FXML
-    private TableColumn<PlanFx, PlanFx> editTableColumn;
-
-    @FXML
-    private TableColumn<PlanFx, PlanFx> deleteTableColumn;
 
     @FXML
     private TableColumn<PlanFx, PlanFx> mealsTableColumn;
@@ -101,61 +96,6 @@ public class PlanViewController {
         sugarsTableColumn.setCellValueFactory(cellData -> cellData.getValue().sugarsProperty().asObject());
         proteinTableColumn.setCellValueFactory(cellData -> cellData.getValue().proteinProperty().asObject());
         saltTableColumn.setCellValueFactory(cellData-> cellData.getValue().saltProperty().asObject());
-        deleteTableColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
-        deleteTableColumn.setCellFactory(cellData -> new TableCell<PlanFx, PlanFx>() {
-            Button button = new Button("X");
-            @Override
-            protected void updateItem(PlanFx item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                    return;
-                }
-                if (!empty) {
-                    setGraphic(button);
-                    button.setOnAction(event -> {
-                        try {
-                            planDao.deletePlan(item.getName());
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                        refreshTable();
-                    });
-                }
-            }
-        });
-        editTableColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
-        editTableColumn.setCellFactory(cellData -> new TableCell<PlanFx, PlanFx>() {
-            Button button = new Button("EDIT");
-            @Override
-            protected void updateItem(PlanFx item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                    return;
-                }
-                if (!empty) {
-                    setGraphic(button);
-                    button.setOnAction(event -> {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/plan/planEditing.fxml"));
-                        Scene scene = null;
-                        try {
-                            scene = new Scene(loader.load());
-                        } catch (IOException e) {
-                            DialogUtil.getInstance().errorDialog(e.getMessage());
-                        }
-                        PlanEditingController controller = loader.getController();
-                        controller.initializeField(item);
-                        Stage stage = new Stage();
-                        stage.setScene(scene);
-                        stage.initModality(Modality.APPLICATION_MODAL);
-                        stage.showAndWait();
-                        refreshTable();
-                    });
-                }
-            }
-        });
-
         mealsTableColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
         mealsTableColumn.setCellFactory(cellData -> new TableCell<PlanFx, PlanFx>() {
             Button button = new Button("SHOW DETAILS");
@@ -169,7 +109,7 @@ public class PlanViewController {
                 if (!empty) {
                     setGraphic(button);
                     button.setOnAction(event -> {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/plan/mealsOfPlanView.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/user/nutrPlan/mealsOfPlanView.fxml"));
                         try {
                             borderPane.setCenter(loader.load());
                             MealsOfPlanController controller = loader.getController();

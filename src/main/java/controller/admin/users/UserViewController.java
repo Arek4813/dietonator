@@ -1,4 +1,4 @@
-package controller.users;
+package controller.admin.users;
 
 import database.dao.UserDao;
 import database.model.User;

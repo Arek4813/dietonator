@@ -1,4 +1,4 @@
-package controller.admins;
+package controller.admin.admins;
 
 import database.dao.AdminsDao;
 import database.model.Admin;

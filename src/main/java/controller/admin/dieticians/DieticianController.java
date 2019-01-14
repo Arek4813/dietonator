@@ -1,4 +1,4 @@
-package controller;
+package controller.admin.dieticians;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package controller.admin.plan;
+package controller.user.nutrPlan;
 
 import database.dao.PlanMealDao;
 import database.model.PlanMeal;
@@ -34,9 +34,6 @@ public class MealsOfPlanController {
 
     @FXML
     private TableColumn<PlanMealFx, String> mealColumn;
-
-    @FXML
-    private TableColumn<PlanMealFx, PlanMealFx> deleteColumn;
 
     @FXML
     private TextField mealTextField;
@@ -81,7 +78,7 @@ public class MealsOfPlanController {
 
     @FXML
     public void goBackToPlans() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/plan/planView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/user/nutrPlan/planView.fxml"));
         try {
             ((BorderPane)vBox.getParent()).setCenter(loader.load());
         } catch (IOException e) {
@@ -100,29 +97,6 @@ public class MealsOfPlanController {
         dayColumn.setCellValueFactory(cellData -> cellData.getValue().dayProperty());
         timeColumn.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
         mealColumn.setCellValueFactory(cellData -> cellData.getValue().mealProperty());
-        deleteColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
-        deleteColumn.setCellFactory(cellData -> new TableCell<PlanMealFx, PlanMealFx>() {
-            Button button = new Button("X");
-            @Override
-            protected void updateItem(PlanMealFx item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                    return;
-                }
-                if (!empty) {
-                    setGraphic(button);
-                    button.setOnAction(event -> {
-                        try {
-                            planMealDao.deletePlanMeal(item.getPlan(), item.getDay(), item.getTime());
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                        refreshTable();
-                    });
-                }
-            }
-        });
     }
 
     private void initializeChoiceBoxes() {

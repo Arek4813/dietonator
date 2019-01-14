@@ -1,4 +1,4 @@
-package controller.product;
+package controller.admin.product;
 
 import database.dao.CategoryDao;
 import database.dao.ProductDao;
@@ -11,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import modelfx.CategoryFx;
 import modelfx.ProductFx;
 import utils.converter.CategoryConverter;

@@ -1,4 +1,4 @@
-package controller.logdata;
+package controller.admin.logdata;
 
 import database.dao.LogDataDao;
 import database.model.LogData;

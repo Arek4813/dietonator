@@ -1,4 +1,4 @@
-package controller.category;
+package controller.admin.category;
 
 import database.dao.CategoryDao;
 import database.model.Category;

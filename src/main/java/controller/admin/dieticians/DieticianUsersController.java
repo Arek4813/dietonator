@@ -1,4 +1,4 @@
-package controller.dieticians;
+package controller.admin.dieticians;
 
 import database.dao.UserDieticianDao;
 import database.model.UserDietician;

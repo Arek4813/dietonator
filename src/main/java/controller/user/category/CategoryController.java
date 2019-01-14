@@ -1,4 +1,4 @@
-package controller.user;
+package controller.user.category;
 
 import database.dao.CategoryDao;
 import database.model.Category;

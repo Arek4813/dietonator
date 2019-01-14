@@ -1,5 +1,6 @@
-package controller.admin.product;
+package controller.user.product;
 
+import controller.admin.product.ProductEditingController;
 import database.dao.ProductDao;
 import database.model.Category;
 import database.model.Product;
@@ -21,7 +22,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ProductViewController {
+public class ProductController {
 
     @FXML
     private TableView<ProductFx> productTable;
@@ -52,12 +53,6 @@ public class ProductViewController {
 
     @FXML
     private TableColumn<ProductFx, Integer> saltColumn;
-
-    @FXML
-    private TableColumn<ProductFx, ProductFx> deleteColumn;
-
-    @FXML
-    private TableColumn<ProductFx, ProductFx> editColumn;
 
     @FXML
     private TextField searchProductTextField;
@@ -131,61 +126,5 @@ public class ProductViewController {
         sugarsColumn.setCellValueFactory(cellData -> cellData.getValue().sugarsProperty().asObject());
         proteinColumn.setCellValueFactory(cellData -> cellData.getValue().proteinProperty().asObject());
         saltColumn.setCellValueFactory(cellData -> cellData.getValue().saltProperty().asObject());
-        deleteColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
-        deleteColumn.setCellFactory(cellData -> new TableCell<ProductFx, ProductFx>() {
-            Button button = new Button("X");
-            @Override
-            protected void updateItem(ProductFx item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                    return;
-                }
-                if (!empty) {
-                    setGraphic(button);
-                    button.setOnAction(event -> {
-                        try {
-                            productDao.deleteProduct(item.getName());
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                        refreshTable();
-                    });
-                }
-            }
-        });
-        editColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
-        editColumn.setCellFactory(cellData -> new TableCell<ProductFx, ProductFx>() {
-            Button button = new Button("EDIT");
-            @Override
-            protected void updateItem(ProductFx item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                    return;
-                }
-                if (!empty) {
-                    setGraphic(button);
-                    button.setOnAction(event -> {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/product/productEditing.fxml"));
-                        Scene scene = null;
-                        try {
-                            scene = new Scene(loader.load());
-                        } catch (IOException e) {
-                            DialogUtil.getInstance().errorDialog(e.getMessage());
-                        }
-                        ProductEditingController controller = loader.getController();
-                        controller.initializeFields(item);
-                        Stage stage = new Stage();
-                        stage.setScene(scene);
-                        stage.initModality(Modality.APPLICATION_MODAL);
-                        stage.showAndWait();
-                        refreshTable();
-                    });
-                }
-            }
-        });
     }
-
-
 }

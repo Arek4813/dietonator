@@ -9,12 +9,12 @@ import java.io.IOException;
 
 public class UserPanelController {
 
-    private static final String CATEGORIES = "/fxml/user/categoryView.fxml";
-    private static final String PRODUCTS = "/fxml/user/productView.fxml";
-    private static final String MEAL = "/fxml/user/mealView.fxml";
-    private static final String PLAN = "/fxml/user/nutrPlanView.fxml";
-    private static final String DIETICIANS = "/fxml/user/myDieticiansView.fxml";
-    private static final String PROFILE = "/fxm/user/myProfileView.fxml";
+    private static final String CATEGORIES = "/fxml/user/category/categoryView.fxml";
+    private static final String PRODUCTS = "/fxml/user/product/productView.fxml";
+    private static final String MEAL = "/fxml/user/meal/mealView.fxml";
+    private static final String PLAN = "/fxml/user/nutrPlan/planView.fxml";
+    private static final String DIETICIANS = "/fxml/user/dieticians/myDieticiansView.fxml";
+    private static final String PROFILE = "/fxml/user/profile/myProfileView.fxml";
 
 
     @FXML

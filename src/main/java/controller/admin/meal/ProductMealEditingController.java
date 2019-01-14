@@ -1,4 +1,4 @@
-package controller.meal;
+package controller.admin.meal;
 
 import database.dao.ProductMealDao;
 import database.model.ProductMeal;
@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import modelfx.ProductMealFx;
-import utils.dialog.DialogUtil;
 
 import java.sql.SQLException;
 

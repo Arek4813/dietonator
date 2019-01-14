@@ -1,5 +1,6 @@
-package controller.admin.meal;
+package controller.user.meal;
 
+import controller.admin.meal.ProductMealEditingController;
 import database.dao.ProductMealDao;
 import database.model.ProductMeal;
 import javafx.beans.property.SimpleObjectProperty;
@@ -34,12 +35,6 @@ public class ProductsOfMealController {
     private TableColumn<ProductMealFx, Integer> amountColumn;
 
     @FXML
-    private TableColumn<ProductMealFx, ProductMealFx> editColumn;
-
-    @FXML
-    private TableColumn<ProductMealFx, ProductMealFx> deleteColumn;
-
-    @FXML
     private TextField productTextField;
 
     @FXML
@@ -61,7 +56,7 @@ public class ProductsOfMealController {
 
     @FXML
     public void goBackToMeals() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/meal/mealView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/user/meal/mealView.fxml"));
         try {
             ((BorderPane)vBox.getParent()).setCenter(loader.load());
         } catch (IOException e) {
@@ -99,61 +94,6 @@ public class ProductsOfMealController {
     private void initializeTable() {
         productColumn.setCellValueFactory(cellData -> cellData.getValue().productProperty());
         amountColumn.setCellValueFactory(cellData -> cellData.getValue().amountProperty().asObject());
-        deleteColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
-        deleteColumn.setCellFactory(cellData -> new TableCell<ProductMealFx, ProductMealFx>() {
-            Button button = new Button("X");
-            @Override
-            protected void updateItem(ProductMealFx item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                    return;
-                }
-                if (!empty) {
-                    setGraphic(button);
-                    button.setOnAction(event -> {
-                        try {
-                            productMealDao.deleteProductFromMeal(item.getProduct(), item.getMeal());
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                        refreshTable();
-                    });
-                }
-            }
-        });
-
-        editColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue()));
-        editColumn.setCellFactory(cellData -> new TableCell<ProductMealFx, ProductMealFx>() {
-            Button button = new Button("EDIT");
-            @Override
-            protected void updateItem(ProductMealFx item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                    return;
-                }
-                if (!empty) {
-                    setGraphic(button);
-                    button.setOnAction(event -> {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin/meal/productMealEditing.fxml"));
-                        Scene scene = null;
-                        try {
-                            scene = new Scene(loader.load());
-                        } catch (IOException e) {
-                            DialogUtil.getInstance().errorDialog(e.getMessage());
-                        }
-                        ProductMealEditingController controller = loader.getController();
-                        controller.initializeTextFields(item);
-                        Stage stage = new Stage();
-                        stage.setScene(scene);
-                        stage.initModality(Modality.APPLICATION_MODAL);
-                        stage.showAndWait();
-                        refreshTable();
-                    });
-                }
-            }
-        });
     }
 
     private void refreshTable() {

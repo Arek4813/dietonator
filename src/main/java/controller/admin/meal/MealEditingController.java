@@ -1,4 +1,4 @@
-package controller.meal;
+package controller.admin.meal;
 
 import database.dao.MealDao;
 import javafx.fxml.FXML;

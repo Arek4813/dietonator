@@ -1,4 +1,4 @@
-package controller.product;
+package controller.admin.product;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
