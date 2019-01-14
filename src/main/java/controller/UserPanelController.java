@@ -1,9 +1,14 @@
 package controller;
 
+import database.DbConnector;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import main.Main;
+import utils.dialog.DialogUtil;
 
 import java.io.IOException;
 
@@ -45,6 +50,21 @@ public class UserPanelController {
 
     @FXML
     public void showMyProfile() { setCenter( PROFILE );}
+
+    @FXML
+    public void logOut() {
+        DbConnector.getInstance().closeConnection();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/loggingView/mainLoggingView.fxml"));
+        Pane borderPane = null;
+        try {
+            borderPane = loader.load();
+        } catch (IOException e) {
+            DialogUtil.getInstance().errorDialog(e.getMessage());
+        }
+        Scene userScene = new Scene(borderPane);
+        Main.setScene(null);
+        Main.setScene(userScene);
+    }
 
     public void setCenter(String pathToCenterController) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(pathToCenterController));

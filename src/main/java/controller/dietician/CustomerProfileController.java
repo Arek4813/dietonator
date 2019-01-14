@@ -79,7 +79,7 @@ public class CustomerProfileController {
             user.setSurname(rs.getString("userSurname"));
             user.setWeight(rs.getFloat("userWeight"));
             user.setHeight(rs.getFloat("userHeight"));
-            user.setBirthDate(rs.getDate("userBirthDate"));
+            user.setBirthDate(rs.getString("userBirthDate"));
             user.setMail(rs.getString("userMail"));
         }
         }

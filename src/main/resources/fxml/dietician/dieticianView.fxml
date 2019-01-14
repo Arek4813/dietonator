@@ -14,9 +14,10 @@
             <Button mnemonicParsing="false" onAction="#showMyProfile" prefHeight="74.0" prefWidth="108.0" text="My profile" />
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#showMyCustomers" prefHeight="74.0" prefWidth="128.0" text="My customers" />
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#showCategories" prefHeight="74.0" prefWidth="108.0" text="Categories" />
-            <Button layoutX="118.0" layoutY="10.0" mnemonicParsing="false" onAction="#showProducts" prefHeight="74.0" prefWidth="108.0" text="Products" />
-            <Button layoutX="226.0" layoutY="10.0" mnemonicParsing="false" onAction="#showMeals" prefHeight="74.0" prefWidth="108.0" text="Meals" />
+            <Button layoutX="118.0" layoutY="10.0" mnemonicParsing="false" onAction="#showProducts" prefHeight="54.0" prefWidth="95.0" text="Products" />
+            <Button layoutX="226.0" layoutY="10.0" mnemonicParsing="false" onAction="#showMeals" prefHeight="54.0" prefWidth="96.0" text="Meals" />
             <Button layoutX="334.0" layoutY="10.0" mnemonicParsing="false" onAction="#showNutritionalPlans" prefHeight="74.0" prefWidth="126.0" text="Nutritional plans" />
+            <Button layoutX="559.0" layoutY="20.0" mnemonicParsing="false" onAction="#logOut" prefHeight="74.0" prefWidth="108.0" text="LOG OUT" />
          </children>
          <BorderPane.margin>
             <Insets />
