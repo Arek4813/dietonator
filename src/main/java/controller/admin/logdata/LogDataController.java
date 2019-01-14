@@ -60,7 +60,8 @@ public class LogDataController {
                 if (!empty) {
                     setGraphic(button);
                     button.setOnAction(event -> {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource( "/fxml/admin/logDataEditing.fxml" ));
+                        FXMLLoader loader =
+                                new FXMLLoader(getClass().getResource( "/fxml/admin/logdata/logDataEditing.fxml" ));
                         Scene scene = null;
                         try {
                             scene = new Scene(loader.load());

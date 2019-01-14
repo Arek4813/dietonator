@@ -8,7 +8,11 @@
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+<<<<<<< HEAD
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dietician.DieticianController">
+=======
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.dieticians.DieticianController">
+>>>>>>> origin/master
     <top>
         <HBox prefHeight="34.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>

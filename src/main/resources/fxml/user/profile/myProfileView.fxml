@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="284.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.profile.MyProfileViewController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="99.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="497.0" minWidth="10.0" prefWidth="185.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label text="Login" />
+      <Label text="Password" GridPane.rowIndex="1" />
+      <Label text="Name" GridPane.rowIndex="2" />
+      <Label text="Surname" GridPane.rowIndex="3" />
+      <Label text="Height" GridPane.rowIndex="4" />
+      <Label text="Weight" GridPane.rowIndex="5" />
+      <Label text="Date of birth" GridPane.rowIndex="6" />
+      <Label text="E-mail" GridPane.rowIndex="7" />
+      <TextField fx:id="userLoginTextField" GridPane.columnIndex="1" />
+      <TextField fx:id="userPasswordTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="userNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="userSurnameTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="userHeightTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <TextField fx:id="userWeightTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <TextField fx:id="userMailTextField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <DatePicker fx:id="userBirthDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+   </children>
+</GridPane>
