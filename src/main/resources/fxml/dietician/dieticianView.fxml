@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dietician.DieticianViewController">
+   <top>
+      <HBox alignment="TOP_CENTER" prefHeight="74.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#showMyProfile" prefHeight="74.0" prefWidth="108.0" text="My profile" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#showMyCustomers" prefHeight="74.0" prefWidth="128.0" text="My customers" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#showCategories" prefHeight="74.0" prefWidth="108.0" text="Categories" />
+            <Button layoutX="118.0" layoutY="10.0" mnemonicParsing="false" onAction="#showProducts" prefHeight="74.0" prefWidth="108.0" text="Products" />
+            <Button layoutX="226.0" layoutY="10.0" mnemonicParsing="false" onAction="#showMeals" prefHeight="74.0" prefWidth="108.0" text="Meals" />
+            <Button layoutX="334.0" layoutY="10.0" mnemonicParsing="false" onAction="#showNutritionalPlans" prefHeight="74.0" prefWidth="126.0" text="Nutritional plans" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+</BorderPane>

@@ -48,7 +48,7 @@ public class SignInPanelController {
                         logger("/fxml/user/mainUserView.fxml");
                     }
                     else if (loggingDao.getRole(getEnterLogin().getText()).equals("DIETICIAN")){
-                        logger("/fxml/dietician/mainDieticianView.fxml");
+                        logger("/fxml/dietician/dieticianView.fxml");
                     }
                     else if (loggingDao.getRole(getEnterLogin().getText()).equals("ADMIN")) {
                         logger( "/fxml/admin/adminView.fxml" );

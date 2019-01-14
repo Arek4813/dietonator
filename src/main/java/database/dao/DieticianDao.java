@@ -2,6 +2,9 @@ package database.dao;
 
 import database.DbConnector;
 import database.model.Dietician;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import modelfx.DieticianFx;
 
 import java.sql.*;
 

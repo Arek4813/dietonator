@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dietician.ProfileController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label prefHeight="43.0" prefWidth="82.0" text="LOGIN" />
+      <Label layoutX="10.0" layoutY="21.0" prefHeight="43.0" prefWidth="82.0" text="MAIL" GridPane.rowIndex="4" />
+      <Label layoutX="10.0" layoutY="275.0" prefHeight="43.0" prefWidth="82.0" text="BIRTH DATE" GridPane.rowIndex="3" />
+      <Label layoutX="10.0" layoutY="212.0" prefHeight="43.0" prefWidth="82.0" text="SURNAME" GridPane.rowIndex="2" />
+      <Label layoutX="10.0" layoutY="149.0" prefHeight="43.0" prefWidth="82.0" text="NAME" GridPane.rowIndex="1" />
+      <Label fx:id="loginLabel" alignment="CENTER" contentDisplay="CENTER" GridPane.columnIndex="1" />
+      <Label fx:id="nameLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label fx:id="surnameLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label fx:id="mailLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Label fx:id="birthDateLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</GridPane>

@@ -1,7 +1,11 @@
 package database.dao;
 
+import com.mysql.cj.protocol.Resultset;
 import database.DbConnector;
 import database.model.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import modelfx.UserFx;
 
 import java.sql.*;
 
@@ -67,6 +71,26 @@ public class UserDao {
         stm.setString(1, login);
         ResultSet resultSet = stm.executeQuery();
         return resultSet;
+    }
+
+    public ObservableList<UserFx> getDieticiansCustomers(String dieticianLogin) throws SQLException {
+        PreparedStatement stm = connection.prepareStatement("SELECT nu.userLogin, userName, userSurname, userWeight, userHeight, userBirthDate, userMail FROM" +
+                " normal_users nu INNER JOIN users_and_dieticians ud ON nu.userLogin = ud.UserLogin WHERE ud.DieticianLogin=?");
+        stm.setString(1, dieticianLogin);
+        ResultSet resultSet = stm.executeQuery();
+        ObservableList<UserFx> users = FXCollections.observableArrayList();
+        while (resultSet.next()) {
+            UserFx userFx = new UserFx();
+            userFx.setLogin(resultSet.getString("userLogin"));
+            userFx.setName(resultSet.getString("userName"));
+            userFx.setSurname(resultSet.getString("userSurname"));
+            userFx.setHeight(resultSet.getFloat("userHeight"));
+            userFx.setWeight(resultSet.getFloat("userWeight"));
+            userFx.setBirthDate(resultSet.getDate("userBirthDate"));
+            userFx.setMail(resultSet.getString("userMail"));
+            users.add(userFx);
+        }
+        return users;
     }
 
 }

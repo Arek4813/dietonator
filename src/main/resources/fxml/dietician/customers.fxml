@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dietician.CustomersController">
+   <children>
+      <TableView fx:id="customersTable" prefHeight="363.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="loginColumn" prefWidth="75.0" text="Login" />
+          <TableColumn fx:id="nameColumn" prefWidth="128.0" text="Name" />
+            <TableColumn fx:id="surnameColumn" prefWidth="126.0" text="Surname" />
+            <TableColumn fx:id="weightColumn" minWidth="7.0" prefWidth="61.0" text="Weight" />
+            <TableColumn fx:id="heightColumn" prefWidth="70.0" text="Height" />
+            <TableColumn fx:id="birthDateColumn" prefWidth="105.0" text="Birth date" />
+            <TableColumn fx:id="mailColumn" prefWidth="185.0" text="Mail" />
+            <TableColumn fx:id="deleteColumn" minWidth="0.0" prefWidth="96.0" text="Delete" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <TextField fx:id="customerTextField" promptText="Customer login" />
+            <Button mnemonicParsing="false" onAction="#addCustomer" prefHeight="25.0" prefWidth="112.0" text="Add customer" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
