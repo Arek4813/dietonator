@@ -34,7 +34,7 @@ public class ProfileController {
     public void initialize() {
         dieticianDao = new DieticianDao();
         try {
-            ResultSet resultSet = dieticianDao.getDieticians(DbConnector.getInstance().getLogin());
+            ResultSet resultSet = dieticianDao.getDieticianByLogin(DbConnector.getInstance().getLogin());
             while (resultSet.next()) {
                 loginLabel.setText(resultSet.getString("dieticianLogin"));
                 nameLabel.setText(resultSet.getString("dieticianName"));

@@ -2,6 +2,7 @@ package controller.user.dieticians;
 
 import controller.admin.dieticians.DieticianEditingController;
 import controller.admin.dieticians.DieticianUsersController;
+import database.DbConnector;
 import database.dao.DieticianDao;
 import database.model.Dietician;
 import javafx.beans.property.SimpleObjectProperty;
@@ -63,8 +64,8 @@ public class MyDieticiansViewController {
         ObservableList<DieticianFx> data = FXCollections.observableArrayList();
         ResultSet rs = null;
         try {
-            rs = dieticianDao.getDieticians();
-            //rs = dieticianDao.getDieticiansForUser();
+            //rs = dieticianDao.getDieticians();
+            rs = dieticianDao.getDieticianByLogin( DbConnector.getInstance().getLogin());
         } catch (SQLException e) {
             e.printStackTrace();
         }
