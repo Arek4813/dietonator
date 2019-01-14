@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="420.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.user.product.ProductController">
+    <children>
+        <TableView fx:id="productTable" layoutX="21.0" layoutY="72.0" prefHeight="334.0" prefWidth="735.0">
+            <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="136.0" text="Name" />
+                <TableColumn fx:id="categoryColumn" prefWidth="98.0" text="Category" />
+                <TableColumn fx:id="energyColumn" prefWidth="62.0" text="Energy" />
+                <TableColumn fx:id="fatColumn" prefWidth="46.0" text="Fat" />
+                <TableColumn fx:id="saturatesColumn" prefWidth="86.0" text="Saturates" />
+                <TableColumn fx:id="carbohydratesColumn" prefWidth="119.0" text="Carbohydrates" />
+                <TableColumn fx:id="sugarsColumn" prefWidth="68.0" text="Sugars" />
+                <TableColumn fx:id="proteinColumn" prefWidth="72.0" text="Protein" />
+                <TableColumn fx:id="saltColumn" prefWidth="46.0" text="Salt" />
+            </columns>
+        </TableView>
+        <Label layoutX="296.0" layoutY="29.0" prefHeight="29.0" prefWidth="169.0" text="Search product by name:" />
+        <TextField fx:id="searchProductTextField" layoutX="472.0" layoutY="31.0" promptText="name" />
+        <Button layoutX="656.0" layoutY="31.0" mnemonicParsing="false" onAction="#searchProduct" text="Search" />
+    </children>
+</Pane>

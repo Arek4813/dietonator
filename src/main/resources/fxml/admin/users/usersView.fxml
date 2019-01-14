@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
-<Pane prefHeight="363.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.users.UserViewController">
+<Pane prefHeight="363.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.users.UserViewController">
 <children>
     <TableView fx:id="userTable" layoutX="10.0" layoutY="10.0" prefHeight="334.0" prefWidth="797.0">
         <columns>

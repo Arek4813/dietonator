@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="703.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dieticians.DieticianAddingController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="703.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.dieticians.DieticianAddingController">
     <children>
         <Button layoutX="612.0" layoutY="27.0" mnemonicParsing="false" onAction="#addDietician" prefHeight="36.0" prefWidth="68.0" text="Add" />
         <TextField fx:id="dieticianLoginTextField" layoutX="31.0" layoutY="14.0" promptText="Login" />
