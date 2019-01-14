@@ -51,7 +51,7 @@ public class UserViewController {
     private TableColumn<UserFx, String> userMail;
 
     @FXML
-    private TableColumn<UserFx, Date> userBirthDate;
+    private TableColumn<UserFx, String> userBirthDate;
 
     @FXML
     private TableColumn<UserFx, UserFx> deleteColumn;
@@ -219,7 +219,7 @@ public class UserViewController {
                 user.setUserSurname(rs.getString( "userSurname" ));
                 user.setUserWeight(rs.getFloat( "userWeight" ));
                 user.setUserHeight(rs.getFloat( "userHeight" ));
-                user.setUserBirthDate(rs.getDate( "userBirthDate" ));
+                user.setUserBirthDate(rs.getString( "userBirthDate" ));
                 user.setUserMail(rs.getString( "userMail" ));
                 data.add(converter.convertToUserFx(user));
             }

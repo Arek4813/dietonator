@@ -34,6 +34,6 @@
         <TextField fx:id="userHeightTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
         <TextField fx:id="userWeightTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         <TextField fx:id="userMailTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-        <DatePicker fx:id="userBirthDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <TextField fx:id="userBirthDateTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
     </children>
 </GridPane>

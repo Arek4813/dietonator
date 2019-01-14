@@ -100,8 +100,7 @@ public class RegisterPanelController {
                     user.setUserSurname(registerSurname.getText());
                     user.setUserWeight(Float.parseFloat(registerWeight.getText()));
                     user.setUserHeight(Float.parseFloat(registerHeight.getText()));
-                    Date date = Date.from(registerBirthDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-                    user.setUserBirthDate(dateInRegistrationConverter.dateinRegistrationConverter(date));
+                    user.setUserBirthDate(registerBirthDatePicker.getValue().toString());
                     user.setUserMail(registerMail.getText());
                     loggingDao.userAdder(user);
                     loggingDao.userAccountAdder(user);
@@ -118,8 +117,7 @@ public class RegisterPanelController {
                     dietician.setDieticianPassword(registerPassword.getText());
                     dietician.setDieticianName(registerName.getText());
                     dietician.setDieticianSurname(registerSurname.getText());
-                    Date date = Date.from(registerBirthDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-                    dietician.setDieticianBirthDate(dateInRegistrationConverter.dateinRegistrationConverter(date));
+                    dietician.setDieticianBirthDate(registerBirthDatePicker.getValue().toString());
                     dietician.setDieticianMail(registerMail.getText());
                     loggingDao.dieticianAdder(dietician);
                     loggingDao.dieticianAccountAdder(dietician);

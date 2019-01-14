@@ -10,6 +10,7 @@ import utils.dialog.DialogUtil;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class UserAddingController {
 
@@ -57,7 +58,7 @@ public class UserAddingController {
                 user.setUserSurname(userSurnameTextField.getText());
                 user.setUserHeight( Float.parseFloat( userHeightTextField.getText() ) );
                 user.setUserWeight( Float.parseFloat( userWeightTextField.getText() ) );
-                user.setUserBirthDate( Date.valueOf( userBirthDateDatePicker.getValue() ) );
+                user.setUserBirthDate(userBirthDateDatePicker.getValue().toString());
                 user.setUserMail(userMailTextField.getText());
                 userDao.addUser(user);
                 clearFields();
@@ -85,6 +86,7 @@ public class UserAddingController {
         userSurnameTextField.clear();
         userHeightTextField.clear();
         userWeightTextField.clear();
+        userBirthDateDatePicker.setValue( LocalDate.now());
         userMailTextField.clear();
     }
 }

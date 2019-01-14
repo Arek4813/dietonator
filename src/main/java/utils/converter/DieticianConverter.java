@@ -21,7 +21,7 @@ public class DieticianConverter {
         dietician.setDieticianPassword(dieticianFx.getPassword());
         dietician.setDieticianName(dieticianFx.getName());
         dietician.setDieticianSurname(dieticianFx.getSurname());
-        //dietician.getDieticianBirthDate(dieticianFx.getBirthDate());
+        dietician.setDieticianBirthDate(dieticianFx.getBirthDate());
         dietician.setDieticianMail(dieticianFx.getMail());
         return dietician;
     }
@@ -32,7 +32,7 @@ public class DieticianConverter {
         dieticianFx.setPassword(dietician.getDieticianPassword());
         dieticianFx.setName(dietician.getDieticianName());
         dieticianFx.setSurname(dietician.getDieticianSurname());
-        //dieticianFx.setBirthDate(dietician.getDieticianBirthDate());
+        dieticianFx.setBirthDate(dietician.getDieticianBirthDate());
         dieticianFx.setMail(dietician.getDieticianMail());
         return dieticianFx;
     }

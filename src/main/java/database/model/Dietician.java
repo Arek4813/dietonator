@@ -40,11 +40,11 @@ public class Dietician {
         this.dieticianSurname = dieticianSurname;
     }
 
-    public Date getDieticianBirthDate() {
+    public String getDieticianBirthDate() {
         return dieticianBirthDate;
     }
 
-    public void setDieticianBirthDate(Date dieticianBirthDate) {
+    public void setDieticianBirthDate(String dieticianBirthDate) {
         this.dieticianBirthDate = dieticianBirthDate;
     }
 
@@ -60,7 +60,7 @@ public class Dietician {
 
     private String dieticianSurname;
 
-    private Date dieticianBirthDate;
+    private String dieticianBirthDate;
 
     private String dieticianMail;
 

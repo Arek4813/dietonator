@@ -13,6 +13,7 @@ import utils.dialog.DialogUtil;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class DieticianEditingController {
 
@@ -65,7 +66,7 @@ public class DieticianEditingController {
         dieticianLoginTextField.setEditable(false);
         dieticianNameTextField.setText(String.valueOf(item.getName()));
         dieticianSurnameTextField.setText(String.valueOf(item.getSurname()));
-        //dieticianBirthDateDatePicker.setValue(item.getBirthDate().toLocalDate());
+        dieticianBirthDateDatePicker.setValue( LocalDate.now());
         dieticianMailTextField.setText(String.valueOf(item.getMail()));
     }
 
@@ -74,7 +75,7 @@ public class DieticianEditingController {
         dietician.setDieticianLogin(dieticianLoginTextField.getText());
         dietician.setDieticianName(dieticianNameTextField.getText());
         dietician.setDieticianSurname(dieticianSurnameTextField.getText());
-        dietician.setDieticianBirthDate( Date.valueOf(dieticianBirthDateDatePicker.getValue() ) );
+        dietician.setDieticianBirthDate(dieticianBirthDateDatePicker.getValue().toString());
         dietician.setDieticianMail(dieticianMailTextField.getText());
         return dietician;
     }

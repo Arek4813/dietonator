@@ -16,7 +16,7 @@ public class User {
 
     private float userHeight;
 
-    private Date userBirthDate;
+    private String userBirthDate;
 
     private String userMail;
 
@@ -68,11 +68,11 @@ public class User {
         this.userHeight = userHeight;
     }
 
-    public Date getUserBirthDate() {
+    public String getUserBirthDate() {
         return userBirthDate;
     }
 
-    public void setUserBirthDate(Date userBirthDate) {
+    public void setUserBirthDate(String userBirthDate) {
         this.userBirthDate = userBirthDate;
     }
 

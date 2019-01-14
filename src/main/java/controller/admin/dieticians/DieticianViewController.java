@@ -44,7 +44,7 @@ public class DieticianViewController {
     private TableColumn<DieticianFx, String> dieticianMail;
 
     @FXML
-    private TableColumn<DieticianFx, Date> dieticianBirthDate;
+    private TableColumn<DieticianFx, String> dieticianBirthDate;
 
     @FXML
     private TableColumn<DieticianFx, DieticianFx> deleteColumn;
@@ -176,7 +176,7 @@ public class DieticianViewController {
                 dietician.setDieticianLogin(rs.getString( "dieticianLogin" ));
                 dietician.setDieticianName(rs.getString( "dieticianName" ));
                 dietician.setDieticianSurname(rs.getString( "dieticianSurname" ));
-                dietician.setDieticianBirthDate(rs.getDate( "dieticianBirthDate" ));
+                dietician.setDieticianBirthDate(rs.getString( "dieticianBirthDate" ));
                 dietician.setDieticianMail(rs.getString( "dieticianMail" ));
                 data.add(converter.convertToDieticianFx(dietician));
             }

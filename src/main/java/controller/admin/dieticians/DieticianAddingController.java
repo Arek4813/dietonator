@@ -10,6 +10,7 @@ import utils.dialog.DialogUtil;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class DieticianAddingController {
 
@@ -49,7 +50,7 @@ public class DieticianAddingController {
                 dietician.setDieticianPassword(dieticianPasswordTextField.getText());
                 dietician.setDieticianName(dieticianNameTextField.getText());
                 dietician.setDieticianSurname(dieticianSurnameTextField.getText());
-                dietician.setDieticianBirthDate( Date.valueOf( dieticianBirthDateDatePicker.getValue() ) );
+                dietician.setDieticianBirthDate(dieticianBirthDateDatePicker.getValue().toString());
                 dietician.setDieticianMail(dieticianMailTextField.getText());
                 dieticianDao.addDietician(dietician);
                 clearFields();
@@ -73,6 +74,7 @@ public class DieticianAddingController {
         dieticianPasswordTextField.clear();
         dieticianNameTextField.clear();
         dieticianSurnameTextField.clear();
+        dieticianBirthDateDatePicker.setValue( LocalDate.now());
         dieticianMailTextField.clear();
     }
 }

@@ -25,7 +25,7 @@ public class UserDao {
         pstm.setString( 4, user.getUserSurname() );
         pstm.setFloat( 5, user.getUserWeight() );
         pstm.setFloat( 6, user.getUserHeight() );
-        pstm.setDate( 7, Date.valueOf(user.getUserBirthDate().toLocalDate()));
+        pstm.setString( 7, user.getUserBirthDate());
         pstm.setString( 8, user.getUserMail() );
         pstm.executeUpdate();
 
@@ -54,7 +54,7 @@ public class UserDao {
         stm.setString(4, user.getUserSurname());
         stm.setFloat(5, user.getUserWeight());
         stm.setFloat(6, user.getUserHeight());
-        stm.setDate(7, Date.valueOf(user.getUserBirthDate().toLocalDate()));
+        stm.setString(7, user.getUserBirthDate());
         stm.setString(8, user.getUserMail());
         stm.executeUpdate();
     }
@@ -62,7 +62,6 @@ public class UserDao {
     public ResultSet getUsers() throws SQLException {
         Statement stm = connection.createStatement();
         ResultSet resultSet = stm.executeQuery("SELECT * FROM normal_users");
-        //ResultSet resultSet = stm.executeQuery("CALL getUsers");
         return resultSet;
     }
 
@@ -86,7 +85,7 @@ public class UserDao {
             userFx.setSurname(resultSet.getString("userSurname"));
             userFx.setHeight(resultSet.getFloat("userHeight"));
             userFx.setWeight(resultSet.getFloat("userWeight"));
-            userFx.setBirthDate(resultSet.getDate("userBirthDate"));
+            userFx.setBirthDate(resultSet.getString("userBirthDate"));
             userFx.setMail(resultSet.getString("userMail"));
             users.add(userFx);
         }
