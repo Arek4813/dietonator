@@ -15,7 +15,7 @@ public class UserFx {
     private StringProperty surname;
     private FloatProperty height;
     private FloatProperty weight;
-    private ObjectProperty<Date> birthDate;
+    private StringProperty birthDate;
     private StringProperty mail;
 
     public UserFx() {
@@ -26,75 +26,22 @@ public class UserFx {
         surname = new SimpleStringProperty();
         height = new SimpleFloatProperty();
         weight = new SimpleFloatProperty();
-        birthDate = new ObjectProperty<Date>() {
-            @Override
-            public void bind(ObservableValue<? extends Date> observable) {
-            }
-
-            @Override
-            public void unbind() {
-
-            }
-
-            @Override
-            public boolean isBound() {
-                return false;
-            }
-
-            @Override
-            public Object getBean() {
-                return null;
-            }
-
-            @Override
-            public String getName() {
-                return null;
-            }
-
-            @Override
-            public Date get() {
-                return null;
-            }
-
-            @Override
-            public void addListener(ChangeListener<? super Date> listener) {
-
-            }
-
-            @Override
-            public void removeListener(ChangeListener<? super Date> listener) {
-
-            }
-
-            @Override
-            public void addListener(InvalidationListener listener) {
-
-            }
-
-            @Override
-            public void removeListener(InvalidationListener listener) {
-
-            }
-
-            @Override
-            public void set(Date value) {
-
-            }
-        };
-
+        birthDate = new SimpleStringProperty();
         mail = new SimpleStringProperty();
 
     }
 
-    public Date getBirthDate() {
+
+
+    public String getBirthDate() {
         return birthDate.get();
     }
 
-    public ObjectProperty<Date> birthDateProperty() {
+    public StringProperty birthDateProperty() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate.set( birthDate );
     }
 

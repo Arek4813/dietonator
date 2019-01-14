@@ -13,6 +13,9 @@ import utils.dialog.DialogUtil;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 public class UserEditingController {
 
@@ -73,7 +76,7 @@ public class UserEditingController {
         userSurnameTextField.setText(String.valueOf(item.getSurname()));
         userWeightTextField.setText(String.valueOf(item.getWeight()));
         userHeightTextField.setText(String.valueOf(item.getHeight()));
-        //userBirthDateDatePicker.setValue(item.getBirthDate().toLocalDate());
+        userBirthDateDatePicker.setValue(LocalDate.now());
         userMailTextField.setText(String.valueOf(item.getMail()));
     }
 
@@ -84,7 +87,7 @@ public class UserEditingController {
         user.setUserSurname(userSurnameTextField.getText());
         user.setUserHeight(Float.parseFloat(userHeightTextField.getText()));
         user.setUserWeight(Float.parseFloat(userWeightTextField.getText()));
-        user.setUserBirthDate( Date.valueOf(userBirthDateDatePicker.getValue() ) );
+        user.setUserBirthDate(userBirthDateDatePicker.getValue().toString());
         user.setUserMail(userMailTextField.getText());
         return user;
     }

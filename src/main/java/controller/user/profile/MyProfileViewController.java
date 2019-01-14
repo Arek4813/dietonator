@@ -32,7 +32,7 @@ public class MyProfileViewController {
     private TextField userMailTextField;
 
     @FXML
-    private DatePicker userBirthDatePicker;
+    private TextField userBirthDateTextField;
 
     private UserDao userDao;
 
@@ -46,7 +46,7 @@ public class MyProfileViewController {
                 userSurnameTextField.setText(resultSet.getString("userSurname"));
                 userHeightTextField.setText(resultSet.getString( "userHeight" ));
                 userWeightTextField.setText(resultSet.getString( "userWeight" ));
-                //userBirthDatePicker.set(resultSet.getString("dieticianBirthDate"));
+                userBirthDateTextField.setText(resultSet.getString("userBirthDate"));
                 userMailTextField.setText(resultSet.getString("userMail"));
             }
         } catch (SQLException e) {

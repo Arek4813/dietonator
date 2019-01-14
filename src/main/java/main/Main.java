@@ -23,6 +23,7 @@ public class Main extends Application {
         Pane pane = loader.load();
         Scene scene = new Scene(pane);
         myStage.setScene(scene);
+        myStage.setResizable(false);
         myStage.show();
     }
 

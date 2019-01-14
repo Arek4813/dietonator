@@ -32,7 +32,7 @@ public class CustomersController {
     private TableColumn<UserFx, Float> heightColumn;
 
     @FXML
-    private TableColumn<UserFx, Date> birthDateColumn;
+    private TableColumn<UserFx, String> birthDateColumn;
 
     @FXML
     private TableColumn<UserFx, String> mailColumn;

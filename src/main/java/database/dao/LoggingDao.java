@@ -27,7 +27,7 @@ public class LoggingDao {
         pstm.setString( 4, user.getUserSurname() );
         pstm.setFloat( 5, user.getUserWeight() );
         pstm.setFloat( 6, user.getUserHeight() );
-        pstm.setDate( 7, user.getUserBirthDate() );
+        pstm.setString( 7, user.getUserBirthDate() );
         pstm.setString( 8, user.getUserMail() );
         pstm.executeUpdate();
     }
@@ -38,7 +38,7 @@ public class LoggingDao {
         pstm.setString( 2, dietician.getDieticianPassword() );
         pstm.setString( 3, dietician.getDieticianName());
         pstm.setString( 4, dietician.getDieticianSurname());
-        pstm.setDate( 5, dietician.getDieticianBirthDate());
+        pstm.setString( 5, dietician.getDieticianBirthDate());
         pstm.setString( 6, dietician.getDieticianMail() );
         pstm.executeUpdate();
     }

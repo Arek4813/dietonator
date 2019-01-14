@@ -23,7 +23,7 @@ public class DieticianDao {
         pstm.setString( 2, dietician.getDieticianPassword() );
         pstm.setString( 3, dietician.getDieticianName() );
         pstm.setString( 4, dietician.getDieticianSurname() );
-        pstm.setDate( 5, Date.valueOf(dietician.getDieticianBirthDate().toLocalDate()));
+        pstm.setString( 5, dietician.getDieticianBirthDate());
         pstm.setString( 6, dietician.getDieticianMail());
         pstm.executeUpdate();
 
@@ -50,7 +50,7 @@ public class DieticianDao {
         stm.setString( 2, dietician.getDieticianPassword() );
         stm.setString( 3, dietician.getDieticianName() );
         stm.setString( 4, dietician.getDieticianSurname() );
-        stm.setDate( 5, Date.valueOf(dietician.getDieticianBirthDate().toLocalDate()));
+        stm.setString( 5, dietician.getDieticianBirthDate());
         stm.setString( 6, dietician.getDieticianMail());
         stm.executeUpdate();
     }

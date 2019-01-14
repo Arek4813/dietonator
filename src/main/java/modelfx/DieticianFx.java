@@ -15,7 +15,7 @@ public class DieticianFx {
     private StringProperty password;
     private StringProperty name;
     private StringProperty surname;
-    private ObjectProperty<Date> birthDate;
+    private StringProperty birthDate;
     private StringProperty mail;
 
     public DieticianFx() {
@@ -24,61 +24,7 @@ public class DieticianFx {
         password = new SimpleStringProperty();
         name = new SimpleStringProperty();
         surname = new SimpleStringProperty();
-        birthDate = new ObjectProperty<Date>() {
-            @Override
-            public void bind(ObservableValue<? extends Date> observable) {
-            }
-
-            @Override
-            public void unbind() {
-
-            }
-
-            @Override
-            public boolean isBound() {
-                return false;
-            }
-
-            @Override
-            public Object getBean() {
-                return null;
-            }
-
-            @Override
-            public String getName() {
-                return null;
-            }
-
-            @Override
-            public Date get() {
-                return null;
-            }
-
-            @Override
-            public void addListener(ChangeListener<? super Date> listener) {
-
-            }
-
-            @Override
-            public void removeListener(ChangeListener<? super Date> listener) {
-
-            }
-
-            @Override
-            public void addListener(InvalidationListener listener) {
-
-            }
-
-            @Override
-            public void removeListener(InvalidationListener listener) {
-
-            }
-
-            @Override
-            public void set(Date value) {
-
-            }
-        };
+        birthDate = new SimpleStringProperty( );
 
         mail = new SimpleStringProperty();
     }
@@ -131,15 +77,15 @@ public class DieticianFx {
         this.surname.set( surname );
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate.get();
     }
 
-    public ObjectProperty<Date> birthDateProperty() {
+    public StringProperty birthDateProperty() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate.set( birthDate );
     }
 
