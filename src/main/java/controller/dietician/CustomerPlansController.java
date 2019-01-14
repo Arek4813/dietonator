@@ -46,7 +46,6 @@ public class CustomerPlansController {
     public void initialize() {
         dietUserDao = new DietUserDao();
         initializeTable();
-        refreshTable();
     }
 
     @FXML
@@ -75,6 +74,7 @@ public class CustomerPlansController {
     public void setUser(UserDieticianFx item) {
         this.user = new UserFx();
         user.setLogin(item.getuLogin());
+        refreshTable();
     }
 
     private void initializeTable() {

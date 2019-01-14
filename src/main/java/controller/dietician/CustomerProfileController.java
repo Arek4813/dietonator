@@ -72,7 +72,7 @@ public class CustomerProfileController {
     public void setUser(UserDieticianFx item) {
         user = new UserFx();
         try {
-        ResultSet rs = userDao.getUsers(item.getuLogin());
+        ResultSet rs = userDao.getUserByLogin(item.getuLogin());
         while (rs.next()) {
             user.setLogin(rs.getString("userLogin"));
             user.setName(rs.getString("userName"));
