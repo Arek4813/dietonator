@@ -69,13 +69,13 @@ public class ProductAddingController {
             CategoryFx categoryFx = categoryChoiceBox.getSelectionModel().getSelectedItem();
 
             product.setCategory(CategoryConverter.getInstance().convertToCategory(categoryFx));
-            product.setEnergy(Integer.parseInt(energyTextField.getText()));
-            product.setFat(Integer.parseInt(fatTextField.getText()));
-            product.setSaturates(Integer.parseInt(saturatesTextField.getText()));
-            product.setCarbohydrates(Integer.parseInt(carbohydratesTextField.getText()));
-            product.setSugars(Integer.parseInt(sugarsTextField.getText()));
-            product.setProtein(Integer.parseInt(proteinTextField.getText()));
-            product.setSalt(Integer.parseInt(saltTextField.getText()));
+            product.setEnergy(Float.parseFloat(energyTextField.getText()));
+            product.setFat(Float.parseFloat(fatTextField.getText()));
+            product.setSaturates(Float.parseFloat(saturatesTextField.getText()));
+            product.setCarbohydrates(Float.parseFloat(carbohydratesTextField.getText()));
+            product.setSugars(Float.parseFloat(sugarsTextField.getText()));
+            product.setProtein(Float.parseFloat(proteinTextField.getText()));
+            product.setSalt(Float.parseFloat(saltTextField.getText()));
             try {
                 productDao.addProduct(product);
                 clearFields();

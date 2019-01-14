@@ -33,25 +33,25 @@ public class ProductViewController {
     private TableColumn<ProductFx, CategoryFx> categoryColumn;
 
     @FXML
-    private TableColumn<ProductFx, Integer> energyColumn;
+    private TableColumn<ProductFx, Float> energyColumn;
 
     @FXML
-    private TableColumn<ProductFx, Integer> fatColumn;
+    private TableColumn<ProductFx, Float> fatColumn;
 
     @FXML
-    private TableColumn<ProductFx, Integer> saturatesColumn;
+    private TableColumn<ProductFx, Float> saturatesColumn;
 
     @FXML
-    private TableColumn<ProductFx, Integer> carbohydratesColumn;
+    private TableColumn<ProductFx, Float> carbohydratesColumn;
 
     @FXML
-    private TableColumn<ProductFx, Integer> sugarsColumn;
+    private TableColumn<ProductFx, Float> sugarsColumn;
 
     @FXML
-    private TableColumn<ProductFx, Integer> proteinColumn;
+    private TableColumn<ProductFx, Float> proteinColumn;
 
     @FXML
-    private TableColumn<ProductFx, Integer> saltColumn;
+    private TableColumn<ProductFx, Float> saltColumn;
 
     @FXML
     private TableColumn<ProductFx, ProductFx> deleteColumn;
@@ -105,13 +105,13 @@ public class ProductViewController {
                 Category category = new Category();
                 category.setName(rs.getString("category"));
                 product.setCategory(category);
-                product.setEnergy(rs.getInt("energy"));
-                product.setFat(rs.getInt("fat"));
-                product.setSaturates(rs.getInt("of_which_saturates"));
-                product.setCarbohydrates(rs.getInt("carbohydrates"));
-                product.setSugars(rs.getInt("of_which_sugars"));
-                product.setProtein(rs.getInt("protein"));
-                product.setSalt(rs.getInt("salt"));
+                product.setEnergy(rs.getFloat("energy"));
+                product.setFat(rs.getFloat("fat"));
+                product.setSaturates(rs.getFloat("of_which_saturates"));
+                product.setCarbohydrates(rs.getFloat("carbohydrates"));
+                product.setSugars(rs.getFloat("of_which_sugars"));
+                product.setProtein(rs.getFloat("protein"));
+                product.setSalt(rs.getFloat("salt"));
                 data.add(converter.convertToProductFx(product));
             }
         } catch (SQLException e) {

@@ -5,24 +5,24 @@ import javafx.beans.property.*;
 public class ProductFx {
     private StringProperty name;
     private ObjectProperty<CategoryFx> category;
-    private IntegerProperty energy;
-    private IntegerProperty fat;
-    private IntegerProperty saturates;
-    private IntegerProperty carbohydrates;
-    private IntegerProperty sugars;
-    private IntegerProperty protein;
-    private IntegerProperty salt;
+    private FloatProperty energy;
+    private FloatProperty fat;
+    private FloatProperty saturates;
+    private FloatProperty carbohydrates;
+    private FloatProperty sugars;
+    private FloatProperty protein;
+    private FloatProperty salt;
 
     public ProductFx() {
         name = new SimpleStringProperty();
         category = new SimpleObjectProperty<>();
-        energy = new SimpleIntegerProperty();
-        fat = new SimpleIntegerProperty();
-        saturates = new SimpleIntegerProperty();
-        carbohydrates = new SimpleIntegerProperty();
-        sugars = new SimpleIntegerProperty();
-        protein = new SimpleIntegerProperty();
-        salt = new SimpleIntegerProperty();
+        energy = new SimpleFloatProperty();
+        fat = new SimpleFloatProperty();
+        saturates = new SimpleFloatProperty();
+        carbohydrates = new SimpleFloatProperty();
+        sugars = new SimpleFloatProperty();
+        protein = new SimpleFloatProperty();
+        salt = new SimpleFloatProperty();
     }
 
     public String getName() {
@@ -37,87 +37,87 @@ public class ProductFx {
         this.name.set(name);
     }
 
-    public Integer getEnergy() {
+    public Float getEnergy() {
         return energy.get();
     }
 
-    public IntegerProperty energyProperty() {
+    public FloatProperty energyProperty() {
         return energy;
     }
 
-    public void setEnergy(int energy) {
+    public void setEnergy(Float energy) {
         this.energy.set(energy);
     }
 
-    public Integer getFat() {
+    public Float getFat() {
         return fat.get();
     }
 
-    public IntegerProperty fatProperty() {
+    public FloatProperty fatProperty() {
         return fat;
     }
 
-    public void setFat(int fat) {
+    public void setFat(Float fat) {
         this.fat.set(fat);
     }
 
-    public Integer getSaturates() {
+    public Float getSaturates() {
         return saturates.get();
     }
 
-    public IntegerProperty saturatesProperty() {
+    public FloatProperty saturatesProperty() {
         return saturates;
     }
 
-    public void setSaturates(int saturates) {
+    public void setSaturates(Float saturates) {
         this.saturates.set(saturates);
     }
 
-    public Integer getCarbohydrates() {
+    public Float getCarbohydrates() {
         return carbohydrates.get();
     }
 
-    public IntegerProperty carbohydratesProperty() {
+    public FloatProperty carbohydratesProperty() {
         return carbohydrates;
     }
 
-    public void setCarbohydrates(int carbohydrates) {
+    public void setCarbohydrates(Float carbohydrates) {
         this.carbohydrates.set(carbohydrates);
     }
 
-    public Integer getSugars() {
+    public Float getSugars() {
         return sugars.get();
     }
 
-    public IntegerProperty sugarsProperty() {
+    public FloatProperty sugarsProperty() {
         return sugars;
     }
 
-    public void setSugars(int sugars) {
+    public void setSugars(Float sugars) {
         this.sugars.set(sugars);
     }
 
-    public Integer getProtein() {
+    public Float getProtein() {
         return protein.get();
     }
 
-    public IntegerProperty proteinProperty() {
+    public FloatProperty proteinProperty() {
         return protein;
     }
 
-    public void setProtein(int protein) {
+    public void setProtein(Float protein) {
         this.protein.set(protein);
     }
 
-    public Integer getSalt() {
+    public Float getSalt() {
         return salt.get();
     }
 
-    public IntegerProperty saltProperty() {
+    public FloatProperty saltProperty() {
         return salt;
     }
 
-    public void setSalt(int salt) {
+    public void setSalt(Float salt) {
         this.salt.set(salt);
     }
 

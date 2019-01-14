@@ -17,13 +17,13 @@ public class ProductDao {
         PreparedStatement stm = connection.prepareStatement("CALL create_product(?, ?, ?, ?, ?, ?, ?, ?, ?)");
         stm.setString(1, product.getName());
         stm.setString(2, product.getCategory().getName());
-        stm.setInt(3, product.getEnergy());
-        stm.setInt(4, product.getFat());
-        stm.setInt(5, product.getSaturates());
-        stm.setInt(6, product.getCarbohydrates());
-        stm.setInt(7, product.getSugars());
-        stm.setInt(8, product.getProtein());
-        stm.setInt(9, product.getSalt());
+        stm.setFloat(3, product.getEnergy());
+        stm.setFloat(4, product.getFat());
+        stm.setFloat(5, product.getSaturates());
+        stm.setFloat(6, product.getCarbohydrates());
+        stm.setFloat(7, product.getSugars());
+        stm.setFloat(8, product.getProtein());
+        stm.setFloat(9, product.getSalt());
         stm.executeUpdate();
     }
 
@@ -37,13 +37,13 @@ public class ProductDao {
         PreparedStatement stm = connection.prepareStatement("CALL update_product(?, ?, ?, ?, ?, ?, ?, ?, ?)");
         stm.setString(1, product.getName());
         stm.setString(2, product.getCategory().getName());
-        stm.setInt(3, product.getEnergy());
-        stm.setInt(4, product.getFat());
-        stm.setInt(5, product.getSaturates());
-        stm.setInt(6, product.getCarbohydrates());
-        stm.setInt(7, product.getSugars());
-        stm.setInt(8, product.getProtein());
-        stm.setInt(9, product.getSalt());
+        stm.setFloat(3, product.getEnergy());
+        stm.setFloat(4, product.getFat());
+        stm.setFloat(5, product.getSaturates());
+        stm.setFloat(6, product.getCarbohydrates());
+        stm.setFloat(7, product.getSugars());
+        stm.setFloat(8, product.getProtein());
+        stm.setFloat(9, product.getSalt());
         stm.executeUpdate();
     }
 
