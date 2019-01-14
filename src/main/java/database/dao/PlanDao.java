@@ -62,4 +62,25 @@ public class PlanDao {
         return plans;
     }
 
+    public ObservableList<PlanFx> getPlansForUser(String login) throws SQLException {
+        PreparedStatement stm = connection.prepareStatement("CALL select_nutritional_plan_for_user(?)");
+        stm.setString(1, DbConnector.getInstance().getLogin());
+        ResultSet resultSet = stm.executeQuery();
+        ObservableList<PlanFx> plans = FXCollections.observableArrayList();
+        while (resultSet.next()) {
+            Plan plan = new Plan();
+            plan.setName(resultSet.getString("name"));
+            plan.setEnergy(resultSet.getFloat("energy"));
+            plan.setFat(resultSet.getFloat("fat"));
+            plan.setSaturates(resultSet.getFloat("of_which_saturates"));
+            plan.setCarbohydrates(resultSet.getFloat("carbohydrates"));
+            plan.setSugars(resultSet.getFloat("of_which_sugars"));
+            plan.setProtein(resultSet.getFloat("protein"));
+            plan.setSalt(resultSet.getFloat("salt"));
+            PlanFx planFx = PlanConverter.getInstance().convertToPlanFx(plan);
+            plans.add(planFx);
+        }
+        return plans;
+    }
+
 }
