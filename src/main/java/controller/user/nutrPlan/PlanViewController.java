@@ -81,7 +81,7 @@ public class PlanViewController {
 
     private void refreshTable() {
         try {
-            planTableView.setItems(planDao.getPlan(""));
+            planTableView.setItems(planDao.getPlansForUser(""));
         } catch (SQLException e) {
             DialogUtil.getInstance().errorDialog(e.getMessage());
         }

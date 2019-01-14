@@ -66,7 +66,7 @@ public class UserDao {
         return resultSet;
     }
 
-    public ResultSet getUsers(String login) throws SQLException {
+    public ResultSet getUserByLogin(String login) throws SQLException {
         PreparedStatement stm = connection.prepareStatement("SELECT * FROM normal_users WHERE userLogin=?");
         stm.setString(1, login);
         ResultSet resultSet = stm.executeQuery();

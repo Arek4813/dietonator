@@ -33,8 +33,8 @@ public class UserConverter {
         UserFx userFx = new UserFx();
         userFx.setLogin(user.getUserLogin());
         //userFx.setPassword(user.getUserLogin());
-        userFx.setName(user.getUserLogin());
-        userFx.setSurname(user.getUserLogin());
+        userFx.setName(user.getUserName());
+        userFx.setSurname(user.getUserSurname());
         userFx.setWeight(user.getUserWeight());
         userFx.setHeight(user.getUserHeight());
         /*userFx.setBirthDate(user.getUserBirthDate());*/
