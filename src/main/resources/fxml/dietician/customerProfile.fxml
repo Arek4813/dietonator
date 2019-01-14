@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.dietician.CustomerProfileController">
+<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dietician.CustomerProfileController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -20,7 +20,6 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <Label prefHeight="30.0" prefWidth="62.0" text="Login" GridPane.rowIndex="1" />
@@ -30,12 +29,10 @@
       <Label prefHeight="31.0" prefWidth="89.0" text="Height" GridPane.rowIndex="5" />
       <Label prefHeight="34.0" prefWidth="91.0" text="Mail" GridPane.rowIndex="6" />
       <Label text="Date of birth" GridPane.rowIndex="7" />
-      <Button onAction="#goBackToCustomers" mnemonicParsing="false" prefHeight="32.0" prefWidth="189.0" text="Go back to customers" />
-      <Label prefHeight="29.0" prefWidth="126.0" text="Nutritional plan" GridPane.rowIndex="8" />
+      <Button mnemonicParsing="false" onAction="#goBackToCustomers" prefHeight="32.0" prefWidth="189.0" text="Go back to customers" />
       <Label fx:id="loginLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Label fx:id="nameLabel" layoutX="310.0" layoutY="70.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Label fx:id="surnameLabel" layoutX="310.0" layoutY="115.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Label fx:id="planLabel" GridPane.columnIndex="1" GridPane.rowIndex="8" />
       <Label fx:id="dateLabel" GridPane.columnIndex="1" GridPane.rowIndex="7" />
       <Label fx:id="mailLabel" GridPane.columnIndex="1" GridPane.rowIndex="6" />
       <Label fx:id="heightLabel" GridPane.columnIndex="1" GridPane.rowIndex="5" />

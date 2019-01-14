@@ -61,7 +61,7 @@ public class DieticianDao {
         return resultSet;
     }
 
-    public ResultSet getDieticiansForUser(String login) throws SQLException {
+    public ResultSet getDieticianByLogin(String login) throws SQLException {
         PreparedStatement stm = connection.prepareStatement("SELECT * FROM dieticians WHERE dieticianLogin=?");
         stm.setString(1, login);
         ResultSet resultSet = stm.executeQuery();
