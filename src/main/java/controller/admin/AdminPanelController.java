@@ -11,7 +11,9 @@ import main.Main;
 import utils.dialog.DialogUtil;
 
 import java.awt.*;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class AdminPanelController {
     private static final String CATEGORIES = "/fxml/admin/category/categoryView.fxml";
@@ -61,41 +63,40 @@ public class AdminPanelController {
     @FXML
     public void backup() {
         String backupFile = "dietonator.sql";
-        String executedCommand = "mysqldump -u root -p password dietonator > " + backupFile;
-        Process runtimeProcess;
-        try {
-            runtimeProcess = Runtime.getRuntime().exec(executedCommand);
-            int processFinished = runtimeProcess.waitFor();
-            if (processFinished == 0)
-                return;
-            else
-                throw new IOException("Something went wrong");
-        }
-        catch (IOException e) {
-            DialogUtil.getInstance().errorDialog(e.getMessage());
-        } catch (InterruptedException e) {
-            DialogUtil.getInstance().errorDialog(e.getMessage());
-        }
+        String executedCommand = "mysqldump -u *** -p*** dietonator > " + backupFile;
+        executeBashCommand(executedCommand);
     }
 
     @FXML
     public void restore() {
         String backupFile = "dietonator.sql";
-        String executedCommand = "mysql -u root -p password dietonator < " + backupFile;
-        Process runtimeProcess;
+        String executedCommand = "mysql -u *** -p*** dietonator < " + backupFile;
+        executeBashCommand(executedCommand);
+    }
+
+    public boolean executeBashCommand(String command) {
+        boolean success = false;
+        System.out.println("Executing BASH command:\n   " + command);
+        Runtime r = Runtime.getRuntime();
+        String[] commands = {"bash", "-c", command};
         try {
-            runtimeProcess = Runtime.getRuntime().exec(executedCommand);
-            int processFinished = runtimeProcess.waitFor();
-            if (processFinished == 0)
-                return;
-            else
-                throw new IOException("Something went wrong");
+            Process p = r.exec(commands);
+
+            p.waitFor();
+            BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String line = "";
+
+            while ((line = b.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            b.close();
+            success = true;
+        } catch (Exception e) {
+            System.err.println("Failed to execute bash with command: " + command);
+            e.printStackTrace();
         }
-        catch (IOException e) {
-            DialogUtil.getInstance().errorDialog(e.getMessage());
-        } catch (InterruptedException e) {
-            DialogUtil.getInstance().errorDialog(e.getMessage());
-        }
+        return success;
     }
 
     @FXML
