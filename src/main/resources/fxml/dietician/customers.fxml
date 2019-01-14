@@ -7,18 +7,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dietician.CustomersController">
+<VBox fx:id="vBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="542.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dietician.CustomersController">
    <children>
-      <TableView fx:id="customersTable" prefHeight="363.0" prefWidth="600.0">
+      <TableView fx:id="customersTable" prefHeight="316.0" prefWidth="513.0">
         <columns>
-          <TableColumn fx:id="loginColumn" prefWidth="75.0" text="Login" />
-          <TableColumn fx:id="nameColumn" prefWidth="128.0" text="Name" />
-            <TableColumn fx:id="surnameColumn" prefWidth="126.0" text="Surname" />
-            <TableColumn fx:id="weightColumn" minWidth="7.0" prefWidth="61.0" text="Weight" />
-            <TableColumn fx:id="heightColumn" prefWidth="70.0" text="Height" />
-            <TableColumn fx:id="birthDateColumn" prefWidth="105.0" text="Birth date" />
-            <TableColumn fx:id="mailColumn" prefWidth="185.0" text="Mail" />
-            <TableColumn fx:id="deleteColumn" minWidth="0.0" prefWidth="96.0" text="Delete" />
+          <TableColumn fx:id="loginColumn" prefWidth="168.0" text="Login" />
+            <TableColumn fx:id="viewProfileColumn" minWidth="0.0" prefWidth="132.0" text="" />
+            <TableColumn fx:id="plansColumn" minWidth="0.0" prefWidth="142.0" text="" />
+            <TableColumn fx:id="deleteColumn" minWidth="0.0" prefWidth="98.0" text="Delete" />
         </columns>
       </TableView>
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
