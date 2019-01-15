@@ -1,6 +1,7 @@
 package controller.user.nutrPlan;
 
 import controller.admin.plan.PlanEditingController;
+import database.DbConnector;
 import database.dao.PlanDao;
 import database.model.Plan;
 import javafx.beans.property.SimpleObjectProperty;
@@ -81,7 +82,7 @@ public class PlanViewController {
 
     private void refreshTable() {
         try {
-            planTableView.setItems(planDao.getPlansForUser(""));
+            planTableView.setItems(planDao.getPlansForUser( DbConnector.getInstance().getLogin() ));
         } catch (SQLException e) {
             DialogUtil.getInstance().errorDialog(e.getMessage());
         }

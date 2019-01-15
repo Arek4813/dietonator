@@ -26,6 +26,13 @@ public class PlanDao {
         PreparedStatement stm = connection.prepareStatement("CALL create_nutritional_plan(?)");
         stm.setString(1, plan.getName());
         stm.executeUpdate();
+
+        PreparedStatement stm1 = connection.prepareStatement( "INSERT INTO diet_and_user (UserLogin, DietName) VALUES" +
+                " " +
+                "(?, ?)" );
+        stm1.setString( 1, DbConnector.getInstance().getLogin() );
+        stm1.setString( 2, plan.getName() );
+        stm1.executeUpdate();
     }
 
     public void updatePlan(String oldName, String newName) throws SQLException {
@@ -64,7 +71,7 @@ public class PlanDao {
 
     public ObservableList<PlanFx> getPlansForUser(String login) throws SQLException {
         PreparedStatement stm = connection.prepareStatement("CALL select_nutritional_plan_for_user(?)");
-        stm.setString(1, DbConnector.getInstance().getLogin());
+        stm.setString(1, login);
         ResultSet resultSet = stm.executeQuery();
         ObservableList<PlanFx> plans = FXCollections.observableArrayList();
         while (resultSet.next()) {
