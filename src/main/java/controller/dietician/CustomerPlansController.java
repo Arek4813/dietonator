@@ -57,6 +57,7 @@ public class CustomerPlansController {
             } catch (SQLException e) {
                 DialogUtil.getInstance().errorDialog(e.getMessage());
             }
+            refreshTable();
         }
         planTextField.clear();
     }
