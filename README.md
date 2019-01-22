@@ -1,1 +1,1 @@
-# dietonator
+Application created in JavaFx connected with MySQL. Idea of project is to enable users and dieticans to make meals and diets(from products and categories included in database) and also to give them possibility to cooperate. 
